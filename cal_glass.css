@@ -1,0 +1,221 @@
+html, body, table, th, td, textarea, h1, p {font-family:'InfinitySans-RegularA1',sans-serif;padding:0;margin:0;font-size:13px;font-weight:400}
+body {color:#222a3b;max-height:2850px;overflow-y:scroll;overflow-x:hidden;margin-bottom:100px;width:100%;position:relative}
+table {border:0;padding:0;margin:0;width:100%}
+a         {font-style:normal;text-decoration:none;color:#555;cursor:pointer;outline:none}
+a:link    {font-style:normal;text-decoration:none;color:#555}
+a:visited {font-style:normal;text-decoration:none;color:#555}
+a:active  {font-style:normal;text-decoration:none;color:#555}
+a:hover   {font-style:normal;text-decoration:none;color:#fff}
+input[type="text"]{background:#fff;border:1px solid #bae2b7;-webkit-appearance:none;padding:0 7px;font-size:12px;border-radius:3px;outline:none;height:30px;width:95px}
+input[type="number"]{background:#fff;border-top:1px solid #ccc;border-left:1px solid #ccc;border-right:1px solid #eee;border-bottom:1px solid #eee;-webkit-appearance:none;padding:0 7px;font-size:12px;border-radius:0;outline:none;height:30px;width:95px}
+input[type="text"][disabled="disabled"]{background-color:#e9e9e9}
+input:focus {border:1px solid #53b44d}
+select:focut {border:1px solid #53b44d}
+@font-face {font-family:'NanumSquareRound';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');font-weight:normal;font-style:normal}
+@font-face {font-family:'InfinitySans-RegularA1';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');font-weight:normal;font-style:normal}
+.dot {font-family:'dotum'}
+.nanum {font-family:'NanumSquareRound'}
+.ftsize11 {font-size:11px !important}
+.ftsize12 {font-size:12px !important}
+.ftsize14 {font-size:14px !important}
+.ftsize15 {font-size:15px !important}
+.ftsize18 {font-size:18px !important}
+.ftsize20 {font-size:20px !important}
+.ftbold {font-weight:bold !important}
+.fc0 {color:#fce021 !important}
+.fff {color:#fff !important}
+.ftred {color:#f32d2d !important}
+.BtnTypeA {padding:5px;background:#fff;color:#000;font-size:11px;font-family:'dotum';border:1px solid #555}
+.BtnTypeB {cursor:pointer;padding:2px 8px;background-color:#52382b;color:#fff;display:inline-block;margin-left:11px;font-size:11px;font-weight:normal}
+.ftaright {text-align:right !important}
+.pd5 {padding:5px 0 !important}
+
+.jqSelect{display:none}
+.pi_select_button{background:#fff;border-top:1px solid #ccc;border-left:1px solid #ccc;border-right:1px solid #eee;border-bottom:1px solid #eee;padding:0 7px;font-size:12px;border-radius:0;outline:none;height:30px;line-height:30px}
+.pi_select_icon.ui-icon{padding:0;margin:8px 0 0 0;height:16px;width:16px;background-image:url(/ishop/2019/img/slt_arr_down.png) center no-repeat}
+.pi_select_button.ui-button:hover, 
+.pi_select_button.ui-button:focus{border:1px solid #53b44d;background:#fff}
+.pi_select_button.ui-button:hover .pi_select_icon, 
+.pi_select_button.ui-button:focus .pi_select_icon{background-image:url(/ishop/2019/img/slt_arr_down.png) center no-repeat}
+.pi_select_button_open.ui-button .pi_select_icon{-ms-transform:rotate(180deg);-webkit-transform:rotate(180deg);transform:rotate(180deg)}
+.pi_select_menu{font-size:12px;color:#000}
+.pi_select_menu.ui-selectmenu-open{min-width:310px}
+.pi_select_menu ul{max-height:250px;overflow-y:scroll}
+.pi_select_menu .ui-menu-item{font-size:12px;background:#fff;padding:2px 0;margin:0;line-height:26px;height:26px}
+.pi_select_menu .ui-menu .ui-menu-item-wrapper{padding:0 10px;margin:0}
+.pi_select_menu .ui-state-active{height:26px;border:none;color:#fff;background:#092c6e;padding:0;margin:0;line-height:26px;font-size:12px}
+
+.pi_radio_label, .pi_radio_label:active, .pi_radio_label:hover{border:none;background:none;padding:0;margin:0;font-size:12px;line-height:22px;color:#333}
+.pi_radio_label.ui-button, .pi_radio_label.ui-button:active, .pi_radio_label.ui-button:hover{border:none;background:none;padding:0;margin:0}
+.pi_radio_label.ui-state-active, .pi_radio_label.ui-state-active:active, .pi_radio_label.ui-state-active:hover{border:none;background:none;padding:0;margin:0}
+.pi_radio_label.ui-visual-focus, .pi_radio_label.ui-visual-focus:active, .pi_radio_label.ui-visual-focus:hover{border:none;background:none;padding:0;margin:0;box-shadow:none}
+.pi_radio_label .ui-icon-background{box-shadow:none;width:14px;height:14px;border:1px solid #ccc;border-radius:50%;background-color:#fff}
+.ui-checkboxradio-radio-label.ui-checkboxradio-checked .ui-icon, .ui-checkboxradio-radio-label.ui-checkboxradio-checked:hover .ui-icon{border-color:#333}
+
+.top_banner{font-size:0;text-align:center}
+.top_banner img{width:100%;padding:0;margin:0}
+.title{font-size:0;text-align:center}
+.title img{width:100%;;padding:0;margin:0}
+
+.shadow_layer{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(255, 255, 255, 0.4);text-align:center;z-index:999999}
+.shadow_layer .loading_img{margin-top:45%}
+
+.step_title{padding:10px 0;margin:0;font-size:18px}
+.step1, .step2, .step3{padding:0 20px}
+
+.step1{margin-top:10px}
+.step1:after{display:block;clear:both;content:""}
+.step1 .glassSort{margin:0 0 20px 0}
+.step1 .glassSort ul{width:100%;display:inline-block;list-style:none;box-sizing:border-box;padding:0;margin:0}
+.step1 .glassSort ul li{float:left;width:20%;text-align:center;color:#555}
+.step1 .glassSort ul li .glass_group{background:#f8f8f8;display:block;padding:10px 0;margin:3px 5px;border:1px solid #fff;position:relative;font-size:13px;box-sizing:border-box;border-radius:4px;position:relative;letter-spacing:-1px;box-shadow:-1px -1px 0px rgba(0,0,0,0.1)}
+.step1 .glassSort ul li .glass_group:hover{background:#53b44d;color:#fff;cursor:pointer;font-weight:700}
+.step1 .glassSort ul li.selected .glass_group, .CutItem_SelectBox .glassSort ul li.selected .glass_group:hover{border:1px solid #53b44d;box-sizing:border-box;color:#fcff00;font-weight:700;background:#53b44d}
+.step1 .glassSort ul li.selected .glass_group:after {color:#fff}
+.step1 .glassSort ul li .effect_icon{display:block;font-size:8px;padding:1px 3px;position:absolute;top:-1px;background-color:#999}
+.step1 .glassSort ul li .effect_icon.step_0{left:-1px}
+.step1 .glassSort ul li .effect_icon.step_1{left:23px}
+.step1 .glassSort ul li .effect_icon.bestico{background:#53b44d;color:#fcff00}
+.step1 .glassSort ul li .effect_icon.saleico{background:#f32d3d;color:#fff}
+.step1 .scroll_help{display:none}
+
+.step2{display:block}
+.step2:after{display:block;clear:both;content:""}
+.step2 .glass_img{float:left;width:55%;min-height:320px}
+.step2 .glass_size{width:41%;float:right}
+.step2 .glass_size ul{padding:0 0 0 ;margin:0}
+.step2 .glass_size ul li{padding:10px 7px;margin:0;list-style:none;border-bottom:1px solid #e3e3e3}
+.step2 .glass_size ul li:last-child{border-bottom:none}
+.step2 .glass_size ul li .inputTitle{display:inline-block;width:45%;font-size:14px}
+.step2 .glass_size ul li .ui-selectmenu-button.ui-button, .step2 .glass_size ul li .textField{width:36%}
+.step2 .glass_size ul li .dataUnit{font-size:13px;display:inline-block;margin-left:5px}
+.mobile_select_glasssort {display:none}
+
+.step2 .cutItemProcBox{clear:both;border-top:1px dashed #ccc;border-bottom:1px dashed #ccc;padding:15px 0;margin:15px 0}
+.step2 .cutItemProcBox p {color:#f32d2d}
+.step2 .cutItemProcBox .ciProcImg {text-align:center;min-height:100px;background:#f5f5f5;margin-bottom:15px;border:1px solid #ccc}
+.step2 .cutItemProcBox .ciProcImg p {line-height:100px;font-size:18px;color:#888}
+.step2 .ciBtn2 {display:block;text-align:center;margin:50px 0 70px 0}
+.step2 .ciBtn2 span {font-size:22px;font-weight:bold;color:#fff;padding:15px 70px;background:#53b44d;box-shadow:0 3px 0 rgba(52,124,48,0.9)}
+.step2 .ciProcSltbox {margin:5px 0;padding:0px 0;max-height:400px;overflow-y:scroll;overflow-x:hidden}
+.step2 .ciProcSltbox .procType01  {margin:15px 0;padding:10px 20px;background:#eedddd;border-radius:4px;border-bottom:1px solid rgba(0,0,0,0.1)}
+.step2 .ciProcSltbox .procType01 ul li {display:block;margin-right:15px;padding:5px 0;position:relative;border-top:1px dashed #ccc}
+.step2 .ciProcSltbox .procType01 ul li:first-child{border:none}
+.step2 .ciProcSltbox .procType01 ul li .item_delete{display:block;width:20px;height:20px;background:url(/info_etc/open_cutting/images/deleteicon.jpg) center no-repeat;position:absolute;top:10px;right:0;text-indent:-1000px;overflow:hidden}
+.step2 .ciProcSltbox .procType01 ul li:first-child .item_delete{display:none}
+.step2 .ciProcSltbox .procType01 .smallsize{width:70px}
+.step2 .glass_processfrm_container{position:relative}
+
+.step3{display:block;clear:both}
+.step3:after{display:block;clear:both;content:""}
+.step3 .glass_add_lists{position:relative;height:313px}
+.step3 .glass_add_lists .fix_head_table{padding:0;border-collapse:collapse}
+.step3 .glass_add_lists .fix_head_table thead{position:absolute;top:0;left:0;width:100%;background-color:#d1e9d0;height:50px}
+.step3 .glass_add_lists .fix_head_table thead tr{display:inline-table;width:calc(100% - 20px);height:50px}
+.step3 .glass_add_lists .fix_head_table tbody{position:absolute;top:53px;left:0;width:100%;height:260px;overflow-y:scroll;background-color:#fafafa}
+.step3 .glass_add_lists .fix_head_table tbody tr{display:inline-table;width:100%;height:49px;border-bottom:1px dashed #e3e3e3}
+.step3 .glass_add_lists .fix_head_table tbody tr td{background-color:#fff;text-align:center;font-size:11px}
+.step3 .glass_add_lists .fix_head_table tr .glasscheck{width:30px}
+.step3 .glass_add_lists .fix_head_table tr .glassname{width:calc(34% - 30px)}
+.step3 .glass_add_lists .fix_head_table tr .glasscount{width:9%}
+.step3 .glass_add_lists .fix_head_table tr .glasstype{width:20%}
+.step3 .glass_add_lists .fix_head_table tr .glasssheet{width:15%}
+.step3 .glass_add_lists .fix_head_table tr .glassprice{width:11%}
+
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul, 
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul{padding:0;margin:0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li, 
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li{padding:0;margin:0;list-style:none;height:25px;line-height:25px;border-bottom:1px dotted #ccc}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li:last-child, 
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li:last-child{border-bottom:none}
+
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line2{height:40px;line-height:40px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line2{height:40px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .vglasstype ul li.line3{height:60px;line-height:60px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line3{height:60px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line4{height:80px;line-height:80px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line4{height:80px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line5{height:100px;line-height:100px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line5{height:100px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line6{height:120px;line-height:120px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line6{height:120px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line7{height:140px;line-height:140px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line7{height:140px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line8{height:160px;line-height:160px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line8{height:160px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line9{height:180px;line-height:180px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line9{height:180px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line10{height:200px;line-height:200px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line10{height:200px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line11{height:220px;line-height:220px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line11{height:220px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line12{height:240px;line-height:240px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line12{height:240px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line13{height:260px;line-height:260px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line13{height:260px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line14{height:280px;line-height:280px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line14{height:280px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line15{height:300px;line-height:300px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line15{height:300px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line16{height:320px;line-height:320px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line16{height:320px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line17{height:340px;line-height:340px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line17{height:340px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line18{height:360px;line-height:360px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line18{height:360px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line19{height:380px;line-height:380px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line19{height:380px;line-height:20px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glasstype ul li.line20{height:400px;line-height:400px;padding:5px 0}
+.step3 .glass_add_lists .fix_head_table tr .glassprocess ul li.line20{height:400px;line-height:20px;padding:5px 0}
+
+.step3 .cutOrdInfo tr td{background:#555;color:#fff;border:0;text-align:center;padding:15px 0;font-size:15px}
+
+.step3 .cutListOrdPay {background:#fff;border:3px solid #53b44d;margin:30px 0 0 0;position:relative;border-radius:4px;box-shadow:0 5px 8px rgba(0,0,0,0.1)}
+.step3 .cutListOrdPay > div:first-child {width:68%;display:inline-block}
+.step3 .cutListOrdPay > div:first-child span {font-size:22px;font-weight:700;position:absolute;margin:20px;top:0}
+.step3 .cutListOrdPay > div:first-child p {position:absolute;top:0;margin:60px 20px;color:#666}
+.step3 .cutListOrdPay > div:last-child {width:30%;display:inline-block}
+.step3 .cutListOrdPay table tr td {padding:10px 0}
+.step3 .cutListOrdPay table tr td:first-child {text-align:left}
+.step3 .cutListOrdPay table tr td:last-child {text-align:right;font-weight:700;font-size:14px}
+.step3 .cutListOrdPay .delText {color:#d11;font-size:13px !important;margin:70px 0 !important;width:400px}
+
+.step3 .cilistSend {margin:0 0 30px 0;background:#fff;padding:20px;/*box-shadow:0 0 10px rgba(188,188,188,0.2)*/border:1px solid #eee}
+.step3 .cilistSend:after{display:block;clear:both;content:""}
+.step3 .cilistSend .helpText{padding:10px 0;color:#d72643;width:100%}
+.step3 .cilistSend .sendForm{float:left;width:40%}
+.step3 .cilistSend .sendForm input{width:100%;margin-bottom:10px}
+.step3 .cilistSend textarea {width:52%;height:104px;background:#fff;border:1px solid #ccc;padding:5px;float:right}
+
+.step3 .ciBtn {text-align:center;margin:50px 0 70px 0}
+.step3 .ciBtn span {font-size:22px;font-weight:bold;color:#fff;padding:15px 70px;background:#d72643;box-shadow:0 3px 0 rgba(131,42,11,0.9)}
+.step3 .ciBtn input[type="button"] {font-size:22px;font-weight:bold;color:#fff;padding:20px 60px;background:#d72643;box-shadow:0 3px 0 rgba(131,42,11,0.9);border:0;cursor:pointer}
+
+.shadow_layer_mobile{display:block;position:fixed;top:0;left:0;width:100%;height:100%;z-index:999998;background:rgba(0, 0, 0, 0.8);text-align:center}
+.proc_pop_link{display:block;position:fixed;top:0; width: 100%; padding-top: 100px; height: 400px; text-align: center; left:0;z-index:999999; box-sizing: border-box;}
+.proc_pop_link strong {
+	display: block;
+	font-size: 40px;
+	font-weight: 700;
+	color: #fff;
+	padding:50px 0
+}
+.proc_pop_close {
+	position: fixed;
+	top: 330px;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 0;
+	border: 1px solid #fff;
+	padding: 15px 0;
+	width: 80%;
+	font-size: 35px;
+	font-weight: 700;
+	color: #000;
+	background: #fff;
+	z-index: 999999;
+	outline: 0;
+	box-sizing: border-box;
+}
+.agreeBtn {display:inline-block;background:#555888;border:1px solid #555888;color:#fff;cursor:pointer;padding:6px 12px;margin-left:12px}
+#commentForm textarea {width:95%;height:100px;font-size:11px;color:#000;background:rgba(0,0,0,0.1);border:0px solid #ccc;overflow:scroll;padding:10px;border-radius:5px}
