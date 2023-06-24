@@ -38,17 +38,11 @@
     			<ul>
 					<li class="">
     					<input type="hidden" id="glass_group_0" name="glass_group[]" value="01">
-    					<a href="#" class="glass_group" gid="0">
-							<!-- <span class="effect_icon saleico step_0">세일</span> -->
-							은경
-						</a>
+    					<a href="#" class="glass_group" gid="0">은경</a>
     				</li>
     				<li class="">
     					<input type="hidden" id="glass_group_1" name="glass_group[]" value="02">
-    					<a href="#" class="glass_group" gid="1">
-    						<!-- <span class="effect_icon bestico step_0">인기</span> -->
-							흑경    					
-						</a>
+    					<a href="#" class="glass_group" gid="1">흑경</a>
     				</li>
     				<li class="">
     					<input type="hidden" id="glass_group_2" name="glass_group[]" value="03">
@@ -76,7 +70,7 @@
     				</li>
     				<li class="">
     					<input type="hidden" id="glass_group_8" name="glass_group[]" value="09">
-    					<a href="#" class="glass_group" gid="8">와인골드경</a>
+    					<a href="#" class="glass_group" gid="8">와인레드경</a>
     				</li>
     				<li class="">
     					<input type="hidden" id="glass_group_9" name="glass_group[]" value="10">
@@ -89,7 +83,7 @@
     	    	<div class="step2">
     		<h2 class="step_title">02. 선택하신 거울의 사이즈를 입력해주세요.</h2>
     		<div class="glass_img">
-				<a href="#" id="selected_glass_link" target="_blank"><img src="./img/glass_01.png" alt="" id="selected_glass_img" width="100%"></a>
+				<img src="./img/defalt.png" alt="" id="selected_glass_img" width="100%">
 			</div>
     		<div class="glass_size">
     			<ul>
@@ -101,6 +95,10 @@
 								<option value="0">사각형</option>
 								<option value="1">원형</option>
 								<option value="2">아치형</option>
+								<option value="3">타원형</option>
+								<option value="4">아치형</option>
+								<option value="5">캡슐형</option>
+								<option value="6">팔각형</option>
 							</select>
     					</span>
     				</li>
@@ -127,7 +125,7 @@
     				<li>
     					<b class="inputTitle">수 량</b>
     					<span class="inputData">
-    						<input type="text" id="glasssize_count" name="glasssize_count" disabled="disabled" class="textField" numberonly=""><b class="dataUnit">EA</b>
+    						<input type="text" id="glasssize_count" name="glasssize_count" disabled="disabled" class="textField" numberonly="" value="1"><b class="dataUnit">EA</b>
     					</span>
     				</li>
     				<li>
@@ -135,6 +133,13 @@
     					<span class="inputData">
 							<input type="radio" name="chk_sheet" value="추가"> 추가 </input>
 							<input type="radio" name="chk_sheet" value="제외"> 제외 </input>
+    					</span>
+    				</li>
+    				<li id="li_safe_corner" class="nonDisplay" >
+    					<b class="inputTitle">안전모서리(4면)</b>
+    					<span class="inputData">
+							<input type="radio" name="chk_safe_corner" value="추가"> 추가 </input>
+							<input type="radio" name="chk_safe_corner" value="제외"> 제외 </input>
     					</span>
     				</li>
     				<li>
@@ -176,6 +181,14 @@
     				<td class="">총 결제금액 : <span class="fc0"><span id="tot_price">0</span>원 </span></td>
     			</tr>
     		</tbody></table>
+			<div class="optionItemBox">
+    			<div class="procOpt" id="wood_process_img">
+    				 <p>총 결제 수량 옵션은 <b class="ftred" id="option_pay_count">0</b>개 입니다.</p>
+    				 <p class='option_deliver'>추가 옵션에서 <b class="ftred">추가운임비를 추가</b> 바랍니다.</p>					 
+    			</div>
+    			<p class="option_deliver" >※ 가로x세로 합산 값이 2000mm를 초과 할 경우 위치에 따라 추가 운임비가 발생합니다.</p>
+    		</div>
+    		
     		
     		<!-- 견적전송하기 -->
     		<div class="cilistSend">
@@ -183,10 +196,10 @@
     			<div class="sendForm">
     				<input type="text" id="order_name" name="order_name" placeholder="수취인명">
     				 <input type="text" id="order_tel" name="order_tel" placeholder="수취인 연락처">
-    				<input type="text" id="order_email" name="order_email" placeholder="수취인 이메일(견적서가 전송됩니다.)">
+    				<input type="text" id="order_email" name="order_email" placeholder="수취인 이메일(없을 시 '없음'으로 표기 부탁드립니다.)">
     			</div>				
     			<div class="sendContents">
-    				<p><textarea name="order_memo" id="order_memo" cols="30" rows="10" placeholder="[요청사항] 가공요청사항외에 주문과 관련된 사항은 톡톡문의 또는 1:1문의 게시판으로 올려주시면 빠른 견적이 가능합니다."></textarea></p>
+    				<p><textarea name="order_memo" id="order_memo" cols="30" rows="10" placeholder="[요청사항] 요청사항외에 주문과 관련된 사항은 톡톡문의 또는 1:1문의 게시판으로 올려주시면 빠른 견적이 가능합니다."></textarea></p>
     			</div>
     		</div>
     		<p class="ftred ftbold ftsize14 pd5">※ 반드시 확인 후 결제를 진행해주세요!</p>
@@ -320,15 +333,38 @@
     		<!-- 견적전송하기 -->
     	</div>
     	    
-    </form>
+    </form>	
+
+	<div class="dim-layer">
+		<div class="dimBg"></div>
+		
+		<div id="layer_alert" class="pop-layer">
+			<div class="pop-container">
+				<div class="pop-conts">
+					<!--content //-->
+					<p class="ctxt mb20" id="alert_txt">Thank you.</p>
+
+					<div class="btn-r">
+						<a href="#" class="btn-layerClose">확인</a>
+					</div>
+					<!--// content-->
+				</div>
+			</div>
+		</div>
+		
+		<div id="loading" class="pop-loading"><!-- 로딩바 -->
+			<img src="./img/loading.gif"/>
+		</div>
+	</div>
 	
   <form id="emailfrm" name="emailfrm" style="display:none;">
-	<input type="hidden" id="market_name" name="market_name"value="스마트스토어" title="마켓명">
+	<input type="hidden" id="market_name" name="market_name"value="">
     <input type="hidden" id="name" name="name"/>
     <input type="hidden" id="email" name="email"/>
     <input type="hidden" id="tel" name="tel"/>
 	<input type="hidden" id="price_count" name="price_count">
 	<input type="hidden" id="price_total" name="price_total" i>
+	<input type="hidden" id="price_option" name="price_option" i>
 	<textarea id="cart" name="cart"></textarea>
 	<textarea id="memo" name="memo"></textarea>
     </div>
