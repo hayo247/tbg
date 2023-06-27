@@ -56,9 +56,9 @@ $(function(){
 	
 	// 지름 값
 	$('#glasssize_diameter').on('keyup', function(){
-		if(parseInt($('#glasssize_diameter').val().replace(/[^0-9]/, '')) > 2400){
-			layer_popup($("#layer_alert"), "A", "선택하신 거울의 최대 지름은 900mm 를 초과하실 수 없습니다.");
-			$('#glasssize_diameter').val("900");
+		if(parseInt($('#glasssize_diameter').val().replace(/[^0-9]/, '')) > 1500){
+			layer_popup($("#layer_alert"), "A", "선택하신 거울의 최대 지름은 1500mm 를 초과하실 수 없습니다.");
+			$('#glasssize_diameter').val("1500");
 		}
 		
 		$("#glasssize_width").val($(this).val());
@@ -269,11 +269,26 @@ function addCart(){
 	}
 
 	var html = "";
+	var tot_len = parseInt($('#glasssize_width').val()) + parseInt($('#glasssize_height').val());
+	var option_deliver = "F";
 	
 	html = "<tr>";
 	html += "	<input type='hidden' name='index' value='" + $('#glass_cal_cart > tbody tr').length + "'/>";
 	html += "	<input type='hidden' name='width' value='" + $('#glasssize_width').val() + "'/>";
 	html += "	<input type='hidden' name='height' value='" + $('#glasssize_height').val() + "'/>";
+	
+	if($("#glasstype_select").val() == "1"){		
+		if(tot_len > 1800){
+			option_deliver = "Y";
+		}
+		html += "	<input type='hidden' name='deliver' value='" + option_deliver + "'/>";
+	}else{
+		if(tot_len > 2000){
+			option_deliver = "Y";
+		}
+		html += "	<input type='hidden' name='deliver' value='" + option_deliver + "'/>";
+	}
+	
 	html += "	<td class='glasscheck'>";
 	html += "		<input type='checkbox'/>";
 	html += "	</td>";
@@ -315,24 +330,13 @@ function cal_total_price(){
 	option_deliver()
 }
 
-// 장바구니 삭제
-function del_glass_cart(){
-	$('#glass_cal_cart > tbody tr .glasscheck input:checked').each(function(){
-		$(this).parents('tr').remove();
-	});
-	
-	cal_total_price();
-}
-
 // 배송비 운임 여부
 function option_deliver(){
 	var tot_len = 0;
 	var showYn = false;
 
-	$('#glass_cal_cart > tbody tr').each(function(){
-		tot_len = parseInt($(this).find('input[name="width"]').val()) + parseInt($(this).find('input[name="height"]').val());
-		
-		if(tot_len > 2000 && !showYn){
+	$('#glass_cal_cart > tbody tr input[name="deliver"]').each(function(){
+		if($(this).val() == "Y" && !showYn){
 			showYn = true;
 		}
 	});
@@ -343,6 +347,16 @@ function option_deliver(){
 		$(".option_deliver").hide()
 	}
 
+}
+
+
+// 장바구니 삭제
+function del_glass_cart(){
+	$('#glass_cal_cart > tbody tr .glasscheck input:checked').each(function(){
+		$(this).parents('tr').remove();
+	});
+	
+	cal_total_price();
 }
 
 // 이메일 보내기
@@ -396,7 +410,7 @@ function send_email(){
 	$.ajax({
 		data : queryString,
 		type : 'post',
-		url : 'https://script.google.com/macros/s/AKfycbxoiWyOcpNunXVtoQX3Bj3Al-WBit1U3qHXSnnf66kqOoF4ZIyL6vSZtI3p846d5jw/exec',
+		url : 'https://script.google.com/macros/s/AKfycbzuqcEpVUqr4UAWv8FecshWEfe1fyDucohxO5eERuS0Mf7imldayxck_sZdujH0OFcsEg/exec',
 		dataType : 'json',
 		error: function(xhr, status, error){
 			$("#loading").hide();
