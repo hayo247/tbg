@@ -1,7 +1,7 @@
 var defImgSrc = "./img/";
 var imgSrc = defImgSrc;
-var	item = [[8000, 15000, 15000, 15000, 15000, 15000]
-			,[12000, 22000, 22000, 22000, 22000, 22000]];
+var	item = [[8000, 13000, 14000, 14000, 14000, 15000]
+			,[12000, 18000, 18000, 18000, 18000, 20000]];
 var selItem = [];
 
 $(function(){
@@ -199,12 +199,14 @@ function set_cal_price(){
 		totalJa = 2 * height_ja;
 	} else if(height_ja == 1) {
 		totalJa = width_ja * 2;
+	} else{
+		totalJa = width_ja * height_ja;
 	}
 	
 	price = input_price * totalJa * $("#glasssize_count").val();
 
 	if($('input[name=chk_sheet]:checked').val() == "추가"){
-		price = price + totalJa * 1500 * $("#glasssize_count").val();
+		price = price + totalJa * 1000 * $("#glasssize_count").val();
 	}
 	
 	if($('input[name=chk_safe_corner]:checked').val() == "추가"){
