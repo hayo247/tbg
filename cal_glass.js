@@ -189,16 +189,19 @@ function set_cal_price(){
 	if($('#glasssize_height').val().replace(/[^0-9]/, '') != ''){
 		input_height = parseInt($('#glasssize_height').val());
 	}
-	
-	totalJa = calJa(input_width) * calJa(input_height);
+
+	var width_ja = calJa(input_width);
+	var height_ja = calJa(input_height);
+
+	if(width_ja == 1 && height_ja == 1) {
+		totalJa = 2;
+	} else if(width_ja == 1) {
+		totalJa = 2 * height_ja;
+	} else if(height_ja == 1) {
+		totalJa = width_ja * 2;
+	}
 	
 	price = input_price * totalJa * $("#glasssize_count").val();
-	
-	if(totalJa == 1){
-		price = price * 2;
-	} else{
-		price = price + (price*0.5);
-	}
 
 	if($('input[name=chk_sheet]:checked').val() == "추가"){
 		price = price + totalJa * 1500 * $("#glasssize_count").val();
