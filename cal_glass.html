@@ -36,43 +36,43 @@
     			<span class="mobile_select_glasssort">색상을 선택하세요.</span>
     			<input type="hidden" id="selected_glass_group" name="selected_glass_group">
     			<ul>
-					<li class="">
+					<li class="" data-item="0">
     					<input type="hidden" id="glass_group_0" name="glass_group[]" value="01">
     					<a href="#" class="glass_group" gid="0">은경</a>
     				</li>
-    				<li class="">
+    				<li class="" data-item="1">
     					<input type="hidden" id="glass_group_1" name="glass_group[]" value="02">
     					<a href="#" class="glass_group" gid="1">흑경</a>
     				</li>
-    				<li class="">
+    				<li class="" data-item="1">
     					<input type="hidden" id="glass_group_2" name="glass_group[]" value="03">
     					<a href="#" class="glass_group" gid="2">브론즈경</a>
     				</li>
-    				<li class="">
+    				<li class="" data-item="1">
     					<input type="hidden" id="glass_group_3" name="glass_group[]" value="04">
     					<a href="#" class="glass_group" gid="3">그레이경</a>
     				</li>
-    				<li class="">
+    				<li class="" data-item="1">
     					<input type="hidden" id="glass_group_4" name="glass_group[]" value="05">
     					<a href="#" class="glass_group" gid="4">청경</a>
     				</li>
-    				<li class="">
+    				<li class="" data-item="1">
     					<input type="hidden" id="glass_group_5" name="glass_group[]" value="06">
     					<a href="#" class="glass_group" gid="5">블루경</a>
     				</li>
-    				<li class="">
+    				<li class="" data-item="1">
     					<input type="hidden" id="glass_group_6" name="glass_group[]" value="07">
     					<a href="#" class="glass_group" gid="6">골드경</a>
     				</li>
-    				<li class="">
+    				<li class="" data-item="1">
     					<input type="hidden" id="glass_group_7" name="glass_group[]" value="08">
     					<a href="#" class="glass_group" gid="7">옐로우경</a>
     				</li>
-    				<li class="">
+    				<li class="" data-item="1">
     					<input type="hidden" id="glass_group_8" name="glass_group[]" value="09">
     					<a href="#" class="glass_group" gid="8">와인레드경</a>
     				</li>
-    				<li class="">
+    				<li class="" data-item="1">
     					<input type="hidden" id="glass_group_9" name="glass_group[]" value="10">
     					<a href="#" class="glass_group" gid="9">로즈골드경</a>
     				</li>    				
@@ -129,14 +129,28 @@
     					</span>
     				</li>
     				<li>
-    					<b class="inputTitle">비상방지안전시트</b>
+    					<b class="inputTitle">비상방지안전시트
+							<div class="box-guide">
+								<button class="button-guide" aria-expanded="false">안내글 토글</button>
+								<div class="box-guide-information">파손 시 파편이 비산되는 것을 방지하도록 뒷면에 안전시트지가 부착됩니다.
+									<button class="box-guide-close">닫기</button>
+								</div>
+							</div>
+						</b>
     					<span class="inputData">
 							<input type="radio" name="chk_sheet" value="추가"> 추가 </input>
 							<input type="radio" name="chk_sheet" value="제외"> 제외 </input>
     					</span>
     				</li>
     				<li id="li_safe_corner" class="nonDisplay" >
-    					<b class="inputTitle">안전모서리(4면)</b>
+    					<b class="inputTitle">안전모서리(4면)
+							<div class="box-guide">
+								<button class="button-guide" aria-expanded="false">안내글 토글</button>
+								<div class="box-guide-information">뾰족한 모서리를 5R로 살짝 라운드 가공하여 더 안전하게 사용 가능합니다.
+									<button class="box-guide-close">닫기</button>
+								</div>
+							</div>
+						</b>
     					<span class="inputData">
 							<input type="radio" name="chk_safe_corner" value="추가"> 추가 </input>
 							<input type="radio" name="chk_safe_corner" value="제외"> 제외 </input>
@@ -194,18 +208,18 @@
     		<div class="cilistSend">
     			<p class="helpText">★ 주문시 수취인 성함과 동일하게 작성해주셔야 확인이 가능합니다. </p>
     			<div class="sendForm">
-    				<input type="text" id="order_name" name="order_name" placeholder="수취인명">
+    				<input type="text" id="order_name" name="order_name" placeholder="수취인 명">
     				 <input type="text" id="order_tel" name="order_tel" placeholder="수취인 연락처">
     				<input type="text" id="order_email" name="order_email" placeholder="수취인 이메일(없을 시 '없음'으로 표기 부탁드립니다.)">
     			</div>				
     			<div class="sendContents">
-    				<p><textarea name="order_memo" id="order_memo" cols="30" rows="10" placeholder="[요청사항] 요청사항외에 주문과 관련된 사항은 톡톡문의 또는 1:1문의 게시판으로 올려주시면 빠른 견적이 가능합니다."></textarea></p>
+    				<p><textarea name="order_memo" id="order_memo" cols="30" rows="10" placeholder="[요청사항] 요청사항외에 주문과 관련된 문의사항은 톡톡문의 또는 Q&A에 올려주시면 빠른 견적이 가능합니다."></textarea></p>
     			</div>
     		</div>
     		<p class="ftred ftbold ftsize14 pd5">※ 반드시 확인 후 결제를 진행해주세요!</p>
     		<p class="ftred ftsize12">- 판매자에게 견적서를 전송해주신 뒤 결제수량대로 결제를 진행해주시면 됩니다.</p>
     		<p class="ftsize12">- 거울 자동견적계산기의 경우 모양과 사이즈 입력시 자동으로 결제금액이 계산이 되는 시스템입니다.</p>
-    		<p class="ftsize12">- 혹 견적기 내 확인되는 차액이 발생할 경우 고객님께 별도로 연락드려 안내드리겠습니다.</p>
+    		<p class="ftsize12">- 견적기 내 확인되는 차액이 발생할 경우 고객님께 별도로 연락드려 안내드리겠습니다.</p>
     		
 			<!-- 개인정보 취급방침 -->
 			<div style="text-align:center;margin-top:50px;font-size:14px">
