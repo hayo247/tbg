@@ -1,13 +1,6 @@
 var defImgSrc = "./img/";
 var imgSrc = defImgSrc;
 var	item = [[8000, 15000, 15000, 15000, 15000, 15000]
-			,[12000, 22000, 22000, 22000, 22000, 22000]
-			,[12000, 22000, 22000, 22000, 22000, 22000]
-			,[12000, 22000, 22000, 22000, 22000, 22000]
-			,[12000, 22000, 22000, 22000, 22000, 22000]
-			,[12000, 22000, 22000, 22000, 22000, 22000]
-			,[12000, 22000, 22000, 22000, 22000, 22000]
-			,[12000, 22000, 22000, 22000, 22000, 22000]
 			,[12000, 22000, 22000, 22000, 22000, 22000]];
 var selItem = [];
 
@@ -21,7 +14,7 @@ $(function(){
 		$(this).addClass('selected');
 		
 		imgSrc = defImgSrc + "glass_" + $(this).find('input').val() + ".jpg";
-		selItem = item[$(this).find('a').attr('gid')];	
+		selItem = item[$(this).data('item')];	
 
 		$(".glass_img img").attr('src', imgSrc);
 
@@ -72,6 +65,22 @@ $(function(){
 		$("#glasssize_height").val($(this).val());
 		
 		set_cal_price();
+	});
+	
+	$('.button-guide').on('mouseover click', function(){
+		var $el = $(this);
+		$el.attr('aria-expanded',true);
+		$el.next().show();
+
+		$('.box-guide-close').on('click', function(){
+			$el.attr('aria-expanded',false);
+			$el.next().hide();
+		});
+	});
+	
+	$('.button-guide').on('mouseout', function(){
+		$(this).attr('aria-expanded',false);
+		$(this).next().hide();
 	});
 	
 	$('#glasssize_width, #glasssize_height, #glasssize_count').on('keyup', function(){			
@@ -187,7 +196,7 @@ function set_cal_price(){
 	
 	if(totalJa == 1){
 		price = price * 2;
-	}else if(totalJa == 2){
+	} else{
 		price = price + (price*0.5);
 	}
 
@@ -339,25 +348,25 @@ function option_deliver(){
 // 이메일 보내기
 function send_email(){
 	if($('#glass_cal_cart > tbody tr').length == 0 ) {
-		alert("견적서에 상품이 없습니다.");
+		layer_popup($("#layer_alert"), "A", '견적서에 상품이 없습니다.');
 		return;
 	}
 	
 	if($('#order_name').val() == "" ){
-		alert("주문자 명을 입력해주세요.");
+		layer_popup($("#layer_alert"), "A", '주문자 명을 입력해주세요.');
 		return;
 	}
 	if($('#order_tel').val() == "" ){
-		alert("연락처를 입력해주세요.");
+		layer_popup($("#layer_alert"), "A", '연락처를 입력해주세요.');
 		return;
 	}
 	if($('#order_email').val() == "" ){
-		alert("이메일을 입력해주세요.");
+		layer_popup($("#layer_alert"), "A", '이메일을 입력해주세요.');
 		return;
 	}
 
 	if($("#agree_privacy:checked").length == 0 ){
-		alert("개인정보 취급동의에 체크해주세요.");
+		layer_popup($("#layer_alert"), "A", '개인정보 취급동의에 체크해주세요.');
 		return;
 	}	
 	
@@ -387,7 +396,7 @@ function send_email(){
 	$.ajax({
 		data : queryString,
 		type : 'post',
-		url : 'https://script.google.com/macros/s/AKfycbzqlHRY8xWh-TXOPF9h-b5xZsaAk4OwciP-zH6Bx6kRHfmLqpHUXo63np8nmgYOLgeoXA/exec',
+		url : 'https://script.google.com/macros/s/AKfycbxoiWyOcpNunXVtoQX3Bj3Al-WBit1U3qHXSnnf66kqOoF4ZIyL6vSZtI3p846d5jw/exec',
 		dataType : 'json',
 		error: function(xhr, status, error){
 			$("#loading").hide();
