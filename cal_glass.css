@@ -78,8 +78,6 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 .step_title{padding:10px 0;margin:0;font-size:18px}
 .step1, .step2, .step3{padding:0 20px}
 
-
-.mobile {max-width:800px}
 .mobile .step_title{padding:10px 0;margin:0;font-size:1rem}
 
 .step1{margin-top:10px}
