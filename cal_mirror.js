@@ -23,6 +23,7 @@ $(function(){
 		}else{
 			$("#li_thick").hide();
 		}
+			
 
 		initStatus('A');
 
@@ -436,7 +437,7 @@ function send_email(){
 	$.ajax({
 		data : queryString,
 		type : 'post',
-		url : 'https://script.google.com/macros/s/AKfycbx5b4C-hDT5m2i1MNV-clofA-iVw03F0rtLDj_SPAQd5Q8fGOKxtiIl5OqpvdKzPksZ/exec',
+		url : 'https://script.google.com/macros/s/AKfycbxDF8EdC-XMQHbEGsBHNoh0iJkY7XaPJym36BHSlnxErcdH0Bsjz5qI-VzCLoP4yGdQ/exec',
 		dataType : 'json',
 		error: function(xhr, status, error){
 			$("#loading").hide();
