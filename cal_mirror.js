@@ -17,6 +17,13 @@ $(function(){
 		selItem = item[$(this).data('item')];	
 
 		$(".glass_img img").attr('src', imgSrc);
+		
+		if($(this).hasClass('thick')){
+			$("#li_thick").show();
+		}else{
+			$("#li_thick").hide();
+		}
+			
 
 		initStatus('A');
 
@@ -167,6 +174,7 @@ function initStatus(type){
 	$("#glasssize_count").val("1");
 	$("#glasssize_price").val("");
 	$('input[name=chk_sheet]').prop('checked', false);
+	$('input[name=chk_thick]').prop('checked', false);
 	$('input[name=chk_safe_corner]').prop('checked', false);
 }
 
@@ -237,39 +245,47 @@ function calJa (n){
 function addCart(){	
 	// 빈값 체크
 	if($('#glasstype_select').val() == ""){
-		layer_popup($("#layer_alert"), "A", '모양을 선택하세요.');
-		$("#glasstype_select").focus();
+		layer_popup($("#layer_alert"), "A", '모양을 선택하세요.', $("#glasstype_select"));
 		return;
 	}
 
-	if($('#glasssize_width').val() == ""){
-		layer_popup($("#layer_alert"), "A", '가로 값을 입력하세요.');
-		$("#glasssize_width").focus();
-		return;
+
+	if($('#glasstype_select').val() == "1"){
+		if($('#glasssize_diameter').val() == ""){
+			layer_popup($("#layer_alert"), "A", '지름 값을 입력하세요.', $("#glasssize_diameter"));
+			return;
+		}
+	} else{
+		if($('#glasssize_width').val() == ""){
+			layer_popup($("#layer_alert"), "A", '가로 값을 입력하세요.', $("#glasssize_width"));
+			return;
+		}
+		
+		if($('#glasssize_height').val() == ""){
+			layer_popup($("#layer_alert"), "A", '세로 값을 입력하세요.', $("#glasssize_height"));
+			return;
+		}
 	}
 	
-	if($('#glasssize_height').val() == ""){
-		layer_popup($("#layer_alert"), "A", '세로 값을 입력하세요.');
-		$("#glasssize_height").focus();
-		return;
-	}
 	
 	if($('#glasssize_count').val() == ""){
-		layer_popup($("#layer_alert"), "A", '수량을 입력하세요.');
-		$("#glasssize_count").focus();
+		layer_popup($("#layer_alert"), "A", '수량을 입력하세요.', $("#glasssize_count"));
+		return;
+	}
+
+	if($("#li_thick").is(':visible') && $('input[name=chk_thick]:checked').val() == undefined){
+		layer_popup($("#layer_alert"), "A", '두께를 선택하세요.', $("#input[name=chk_thick]"));
 		return;
 	}
 	
 	if($('input[name=chk_sheet]:checked').val() == undefined){
-		layer_popup($("#layer_alert"), "A", '비상방지안전시트를 선택하세요.');
-		$("#input[name=chk_sheet]").focus();
+		layer_popup($("#layer_alert"), "A", '비상방지안전시트를 선택하세요.', $("#input[name=chk_sheet]"));
 		return;
 	}
 	
 	
 	if($('#glasstype_select').val() == "0" && $('input[name=chk_safe_corner]:checked').val() == undefined){
-		layer_popup($("#layer_alert"), "A", '안전모서리(4면)를 선택하세요.');
-		$("#input[name=chk_safe_corner]").focus();
+		layer_popup($("#layer_alert"), "A", '안전모서리(4면)를 선택하세요.', $("#input[name=chk_safe_corner]"));
 		return;
 	}
 
@@ -297,7 +313,13 @@ function addCart(){
 	html += "	<td class='glasscheck'>";
 	html += "		<input type='checkbox'/>";
 	html += "	</td>";
-	html += "	<td class='glassname'>" + $(".glassSort ul li.selected a")[0].innerText + "<br>[ " + $('#glasssize_width').val() + " X " + $('#glasssize_height').val() + " ] </td>" ;
+	html += "	<td class='glassname'>" + $(".glassSort ul li.selected a")[0].innerText + "<br>[ " + $('#glasssize_width').val() + " X " + $('#glasssize_height').val();
+	
+	if($("#li_thick").is(':visible')){
+		html += " X " + $('input[name=chk_thick]:checked').val();
+	}
+	html += " ]</td>";
+	
 	html += "	<td class='glasscount'>" + format_num($("#glasssize_count").val()) + "</td>";
 	html += "	<td class='glasstype'>" + $("#glasstype_select option:checked").text();
 	if($('input[name=chk_safe_corner]:checked').val() == "추가"){
@@ -415,7 +437,7 @@ function send_email(){
 	$.ajax({
 		data : queryString,
 		type : 'post',
-		url : 'https://script.google.com/macros/s/AKfycbzuqcEpVUqr4UAWv8FecshWEfe1fyDucohxO5eERuS0Mf7imldayxck_sZdujH0OFcsEg/exec',
+		url : 'https://script.google.com/macros/s/AKfycbzgma5zy-BcgLmlKKoeCcrAV7E93CrtORL6slBt_wwQ3vrMZVckp3M0EhkUGUqlCmxH/exec',
 		dataType : 'json',
 		error: function(xhr, status, error){
 			$("#loading").hide();
@@ -437,7 +459,7 @@ function getParameter(name) {
 }
 
 // 레이어 팝업
-function layer_popup(el, type, txt){
+function layer_popup(el, type, txt, focusEl){
 
 	var $el = $(el);    //레이어의 id를 $el 변수에 저장
 	var isDim = $el.parent('.dim-layer').find('.dimBg'); //dimmed 레이어를 감지하기 위한 boolean 변수
@@ -465,12 +487,17 @@ function layer_popup(el, type, txt){
 		$el.find('a.btn-layerClose').click(function(){
 			$el.hide();
 			isDim ? $('.dim-layer').fadeOut() : $el.fadeOut(); // 닫기 버튼을 클릭하면 레이어가 닫힌다.
+			
+			if(focusEl){focusEl.focus();}
 			return false;
 		});
 
 		$('.layer .dimBg').click(function(){
 			$el.hide();
 			$('.dim-layer').fadeOut();
+
+			if(focusEl){focusEl.focus();}
+			
 			return false;
 		});
 	}
