@@ -7,6 +7,13 @@ var selItem = [];
 $(function(){
 	$("#market_name").val(getParameter("to"));
 	$('#loading').hide(); //첫 시작시 로딩바를 숨겨준다.
+	
+	if(isMobile()){
+		$("body").addClass('mobile');
+		$("#txt_glassSort").click(function(){
+			$("#ul_glassSort").show();
+		});	
+	}
 
 	// 01. 거울 색상 선택
 	$(".glassSort li").click(function(){
@@ -17,25 +24,30 @@ $(function(){
 		selItem = item[$(this).data('item')];	
 
 		$(".glass_img img").attr('src', imgSrc);
+
+		if(isMobile()){
+			$("#ul_glassSort").hide();
+			$("#txt_glassSort").text($(this).find('a').text());
+		}
 		
 		if($(this).hasClass('thick')){
 			$("#li_thick").show();
 		}else{
 			$("#li_thick").hide();
 		}
-			
 
 		initStatus('A');
 
 		$("#glasstype_select").attr("disabled", false);
-		$("#glasssize_width").attr("disabled", false);
-		$("#glasssize_height").attr("disabled", false);
-		$("#glasssize_count").attr("disabled", false);
 	});
 
 	// 값 변경
 	$("#glasstype_select").change(function(){
 		initStatus();	
+		$("#glasssize_width").attr("disabled", false);
+		$("#glasssize_height").attr("disabled", false);
+		$("#glasssize_count").attr("disabled", false);
+
 		
 		// 원형 > 지름값 / 이외에는 가로 * 세로
 		if($(this).val() == "1"){
@@ -244,11 +256,16 @@ function calJa (n){
 // 거울(물품) 담기
 function addCart(){	
 	// 빈값 체크
+	if($(".glassSort li.selected").length == 0){
+		layer_popup($("#layer_alert"), "A", '색상을 선택하세요.', $(".glassSort"));
+		return;
+	}
+
+	
 	if($('#glasstype_select').val() == ""){
 		layer_popup($("#layer_alert"), "A", '모양을 선택하세요.', $("#glasstype_select"));
 		return;
 	}
-
 
 	if($('#glasstype_select').val() == "1"){
 		if($('#glasssize_diameter').val() == ""){
@@ -334,6 +351,8 @@ function addCart(){
 	$('#glass_cal_cart > tbody').append(html);
 	
 	cal_total_price();
+	
+	initStatus('A');
 }
 
 // 장바구니에 담긴 값의 토탈 값
@@ -449,6 +468,10 @@ function send_email(){
 		}
 	});
 	
+}
+
+function isMobile(){
+	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
 function getParameter(name) {
