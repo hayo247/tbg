@@ -23,7 +23,6 @@ $(function(){
 		}else{
 			$("#li_thick").hide();
 		}
-			
 
 		initStatus('A');
 
