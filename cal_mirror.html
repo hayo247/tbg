@@ -36,15 +36,15 @@
     			<span class="mobile_select_glasssort">색상을 선택하세요.</span>
     			<input type="hidden" id="selected_glass_group" name="selected_glass_group">
     			<ul>
-					<li class="" data-item="0">
+					<li class="thick" data-item="0">
     					<input type="hidden" id="glass_group_0" name="glass_group[]" value="01">
     					<a href="#" class="glass_group" gid="0">은경</a>
     				</li>
-    				<li class="" data-item="1">
+    				<li class="thick" data-item="1">
     					<input type="hidden" id="glass_group_1" name="glass_group[]" value="02">
     					<a href="#" class="glass_group" gid="1">흑경</a>
     				</li>
-    				<li class="" data-item="1">
+    				<li class="thick" data-item="1">
     					<input type="hidden" id="glass_group_2" name="glass_group[]" value="03">
     					<a href="#" class="glass_group" gid="2">브론즈경</a>
     				</li>
@@ -120,7 +120,14 @@
     						<input type="text" id="glasssize_diameter" name="glasssize_diameter" class="textField" numberonly=""><b class="dataUnit">mm</b>
     					</span>
     				</li>
-					
+					<li id="li_thick"  class="nonDisplay">
+    					<b class="inputTitle">두 께
+						</b>
+    					<span class="inputData">
+							<input type="radio" name="chk_thick" value="3"> 3mm </input>
+							<input type="radio" name="chk_thick" value="5"> 5mm </input>
+    					</span>
+    				</li>
     				<li>
     					<b class="inputTitle">수 량</b>
     					<span class="inputData">
@@ -174,7 +181,7 @@
         			<thead>
         				<tr>
         					<th scope="row" class="glasscheck">&nbsp;</th>
-        					<th scope="row" class="glassname">제품명(주문크기)</th>
+        					<th scope="row" class="glassname">제품명 (가로x세로)</th>
         					<th scope="row" class="glasscount">수량</th>
         					<th scope="row" class="glasstype">제품모양</th>
         					<th scope="row" class="glasssheet">비상방지안전시트</th>
@@ -188,7 +195,7 @@
     			<tbody><tr>
     				<td>
     					<a href="#" id="select_delete_cart"><span class="BtnTypeA">선택삭제</span></a>
-    					<a href="" id="all_delete_cart"><span class="BtnTypeA">전체삭제</span></a>
+    					<a href="#" id="all_delete_cart"><span class="BtnTypeA">전체삭제</span></a>
     				</td>
     				<td>총 수량 : <span class="fc0"><span id="tot_count">0</span>개</span></td>
     				<td class="">총 결제금액 : <span class="fc0"><span id="tot_price">0</span>원 </span></td>
