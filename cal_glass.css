@@ -40,6 +40,10 @@ a.btn-layerClose {display: inline-block; height: 25px; padding: 0 14px 0; border
 a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; color: #fff;}
 .pop-loading {display: none; position: absolute; top: 50%; left: 50%; width: 410px; height: auto; z-index: 10;}
 
+.dimWhite {display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+.mobile .pop-layer {width: 300px;}
+.mobile .pop-loading {width: 300px;}
+
 .nonDisplay{display:none;}
 .pi_select_button{background:#fff;border-top:1px solid #ccc;border-left:1px solid #ccc;border-right:1px solid #eee;border-bottom:1px solid #eee;padding:0 7px;font-size:12px;border-radius:0;outline:none;height:30px;line-height:30px}
 .pi_select_button.ui-button:hover, 
@@ -74,6 +78,10 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 .step_title{padding:10px 0;margin:0;font-size:18px}
 .step1, .step2, .step3{padding:0 20px}
 
+
+.mobile {max-width:800px}
+.mobile .step_title{padding:10px 0;margin:0;font-size:1rem}
+
 .step1{margin-top:10px}
 .step1:after{display:block;clear:both;content:""}
 .step1 .glassSort{margin:0 0 20px 0}
@@ -83,35 +91,46 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 .step1 .glassSort ul li .glass_group:hover{background:#4374D9;color:#fff;cursor:pointer;font-weight:700}
 .step1 .glassSort ul li.selected .glass_group, .CutItem_SelectBox .glassSort ul li.selected .glass_group:hover{border:1px solid #4374D9;box-sizing:border-box;color:#fcff00;font-weight:700;background:#4374D9}
 .step1 .glassSort ul li.selected .glass_group:after {color:#fff}
-.step1 .glassSort ul li .effect_icon{display:block;font-size:8px;padding:1px 3px;position:absolute;top:-1px;background-color:#999}
-.step1 .glassSort ul li .effect_icon.step_0{left:-1px}
-.step1 .glassSort ul li .effect_icon.step_1{left:23px}
-.step1 .glassSort ul li .effect_icon.bestico{background:#4374D9;color:#fcff00}
-.step1 .glassSort ul li .effect_icon.saleico{background:#f32d3d;color:#fff}
 .step1 .scroll_help{display:none}
+
+.mobile .step1 .glassSort {position: relative }
+.mobile .step1 .glassSort .mobile_select_glasssort {display: block; height: 50px; line-height: 50px; padding: 0 10px; text-align: left; border: 2px solid #4374D9; font-size: 18px; border-radius: 4px; box-shadow: 0 3px 3px rgba(0,0,0,0.1) }
+.mobile .step1 .glassSort ul {position: absolute; top: 50px; left: 0; background-color: #fff; border: 1px solid #999; padding: 10px 0; height: 300px; overflow-y: scroll; display: none }
+.mobile .step1 .glassSort ul li { width: 100%;}
+.mobile .step1 .glassSort ul li .glass_group { background:#fff; font-size: 15px; padding: 15px 0; border: 0; border: 1px dashed #ccc; overflow: scroll; -webkit-overflow-scrolling: touch; z-index: 10;}
+.mobile .step1 .glassSort ul li.selected .glass_group { background:#4374D9;}
+
 
 .step2{display:block}
 .step2:after{display:block;clear:both;content:""}
 .step2 .glass_img{float:left;width:55%;min-height:320px}
 .step2 .glass_size{width:41%;float:right}
 .step2 .glass_size ul{padding:0 0 0 ;margin:0}
-.step2 .glass_size ul li{padding:10px 7px;margin:0;list-style:none;border-bottom:1px solid #e3e3e3}
-.step2 .glass_size ul li:last-child{border-bottom:none}
+.step2 .glass_size ul li{padding:10px 7px;margin:0;list-style:none;border-top:1px solid #e3e3e3}
+.step2 .glass_size ul li:first-child{border-top:none}
+.step2 .glass_size ul li:last-child{border-top:none}
 .step2 .glass_size ul li .inputTitle{display:inline-block;width:45%;font-size:14px; position: relative;}
 .step2 .glass_size ul li .ui-selectmenu-button.ui-button, .step2 .glass_size ul li .textField{width:36%}
 .step2 .glass_size ul li .dataUnit{font-size:13px;display:inline-block;margin-left:5px}
 .mobile_select_glasssort {display:none}
 
-.step2 .ciBtn2 {display:block;text-align:center;margin:50px 0 70px 0}
+.step2 .glass_size {margin: 10px 0}
+.step2 .ciBtn2 {display:block;text-align:center;margin:50px 0}
 .step2 .ciBtn2 span {font-size:22px;font-weight:bold;color:#fff;padding:15px 70px;background:#4374D9;box-shadow:0 3px 0 rgba(0,51,153,0.9)}
 .step2 .glass_processfrm_container{position:relative}
+
+.mobile .step2 .glass_img{float:left;width:100%;min-height:320px}
+.mobile .step2 .glass_size{width:100%;}
+.mobile .step2 .glass_size ul li{float: left; width: 100%; padding-right: 0; padding-left: 0}
+.mobile .step2 .glass_size ul li .inputData{width: 50%; padding: 5px;}
+.mobile .step2 .glass_size ul li .textField{width: 40%;}
 
 .step3{display:block;clear:both}
 .step3:after{display:block;clear:both;content:""}
 .step3 .glass_add_lists{position:relative;height:313px}
 .step3 .glass_add_lists .fix_head_table{padding:0;border-collapse:collapse}
 .step3 .glass_add_lists .fix_head_table thead{position:absolute;top:0;left:0;width:100%;background-color:#B2CCFF;height:50px}
-.step3 .glass_add_lists .fix_head_table thead tr{display:inline-table;width:calc(100% - 20px);height:50px}
+.step3 .glass_add_lists .fix_head_table thead tr{display:inline-table;width:100%;height:50px}
 .step3 .glass_add_lists .fix_head_table tbody{position:absolute;top:53px;left:0;width:100%;height:260px;overflow-y:scroll;background-color:#fafafa}
 .step3 .glass_add_lists .fix_head_table tbody tr{display:inline-table;width:100%;height:49px;border-bottom:1px dashed #e3e3e3}
 .step3 .glass_add_lists .fix_head_table tbody tr td{background-color:#fff;text-align:center;font-size:11px}
@@ -170,6 +189,8 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 
 .step3 .cutOrdInfo tr td{background:#555;color:#fff;border:0;text-align:center;padding:15px 0;font-size:15px}
 
+.mobile .step3 .cutOrdInfo tr td { display: block; padding: 10px 0}
+
 .step3 .optionItemBox{clear:both;border-top:1px dashed #ccc;border-bottom:1px dashed #ccc;padding:15px 0;margin:15px 0}
 .step3 .optionItemBox .procOpt {text-align:center;min-height:50px;background:#D5D5D5;margin-bottom:15px;border:1px solid #ccc}
 .step3 .optionItemBox .procOpt p {line-height:50px;font-size:18px;color:#4C4C4C}
@@ -180,11 +201,19 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 .step3 .cilistSend .helpText{padding:10px 0;color:#d72643;width:100%}
 .step3 .cilistSend .sendForm{float:left;width:40%}
 .step3 .cilistSend .sendForm input{width:100%;margin-bottom:10px}
-.step3 .cilistSend textarea {width:52%;height:104px;background:#fff;border:1px solid #ccc;padding:5px;float:right}
+.step3 .cilistSend textarea {width:52%;height:104px;background:#fff;border:1px solid #B2CCFF;padding:5px;float:right}
 
 .step3 .ciBtn {text-align:center;margin:50px 0 70px 0}
 .step3 .ciBtn span {font-size:22px;font-weight:bold;color:#fff;padding:15px 70px;background:#d72643;box-shadow:0 3px 0 rgba(131,42,11,0.9)}
 .step3 .ciBtn input[type="button"] {font-size:22px;font-weight:bold;color:#fff;padding:20px 60px;background:#d72643;box-shadow:0 3px 0 rgba(131,42,11,0.9);border:0;cursor:pointer}
 
+.agreeBox {text-align:center;margin-top:50px;font-size:14px}
 .agreeBtn {display:inline-block;background:#555888;border:1px solid #555888;color:#fff;cursor:pointer;padding:6px 12px;margin-left:12px}
+
+.mobile .step3 .sendForm{float:left;width:100%}
+.mobile .step3 .cilistSend textarea {width:100%}
+.mobile .step3 .ciBtn input{font-size:1.5rem}
+.mobile .agreeBtn {margin:10px}
+.mobile .agreeBox {font-size:1rem} 
+
 #commentForm textarea {width:95%;height:100px;font-size:11px;color:#000;background:rgba(0,0,0,0.1);border:0px solid #ccc;overflow:scroll;padding:10px;border-radius:5px}
