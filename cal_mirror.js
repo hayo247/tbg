@@ -9,8 +9,6 @@ $(function(){
 	$('#loading').hide(); //첫 시작시 로딩바를 숨겨준다.
 	
 	if(isMobile()){
-		$('head').append('<meta name="viewport" content="width=device-width, initial-scale=1">');
-		top.window.$('head').append('<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">');
 		$("body").addClass('mobile');
 		$("#txt_glassSort").click(function(){
 			$("#ul_glassSort").show();
