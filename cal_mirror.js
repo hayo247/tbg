@@ -9,10 +9,15 @@ $(function(){
 	$('#loading').hide(); //첫 시작시 로딩바를 숨겨준다.
 	
 	if(isMobile()){
+		var meta = document.createElement('meta');
+		meta.name = 'viewport';
+		meta.content = "width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui";
+		document.getElementsByTagName('head')[0].appendChild(meta);
+		
 		$("body").addClass('mobile');
 		$("#txt_glassSort").click(function(){
 			$("#ul_glassSort").show();
-		});	
+		});
 	}
 
 	// 01. 거울 색상 선택
