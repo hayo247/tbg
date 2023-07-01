@@ -479,6 +479,10 @@ function send_email(){
 	$('#price_count').val($('#tot_count').text());
 	$('#price_option').val($('#option_pay_count').text());
 	$('#memo').val($('#order_memo').val());
+
+	if($(".option_deliver").is(':visible')){
+		$('#deliver').val('추가');
+	}
 	
 	var cartTxt = "";
 	
