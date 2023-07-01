@@ -482,6 +482,8 @@ function send_email(){
 
 	if($(".option_deliver").is(':visible')){
 		$('#deliver').val('추가');
+	}else{
+		$('#deliver').val('없음');
 	}
 	
 	var cartTxt = "";
@@ -508,7 +510,7 @@ function send_email(){
 	$.ajax({
 		data : queryString,
 		type : 'post',
-		url : 'https://script.google.com/macros/s/AKfycbz9IGYAHe3VVK_N4P3HAzW80hujT_b-w5v_-VFC8BnyNbMjdFnOiHAFzyNVnowxXJGR/exec',
+		url : 'https://script.google.com/macros/s/AKfycbwGqlZYLFn8Vg1sheqqb0ikukUTiJpdfD_z74g5ZWdhFqtTkluUJjyKUxTywBPNg9t6/exec',
 		dataType : 'json',
 		error: function(xhr, status, error){
 			$("#loading").hide();
