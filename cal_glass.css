@@ -188,7 +188,7 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 .agreeBox {text-align:center;margin-top:50px;font-size:14px}
 .agreeBtn {display:inline-block;background:#555888;border:1px solid #555888;color:#fff;cursor:pointer;padding:6px 12px;margin-left:12px}
 
-#commentForm textarea {width:95%;height:100px;font-size:11px;color:#000;background:rgba(0,0,0,0.1);border:0px solid #ccc;overflow:scroll;padding:10px;border-radius:5px}
+#commentForm textarea {width:95%;height:200px;font-size:11px;color:#000;background:rgba(0,0,0,0.1);border:0px solid #ccc;overflow:scroll;padding:10px;border-radius:5px}
 
 @media ( min-width: 300px ) {
 	.mobile .step_title{padding:10px 0;margin:0;font-size:1rem}
