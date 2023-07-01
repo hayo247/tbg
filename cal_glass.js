@@ -1,12 +1,19 @@
 var defImgSrc = "./img/";
 var imgSrc = defImgSrc;
 var	item = [[8000, 13000, 14000, 14000, 14000, 15000]
-			,[12000, 18000, 18000, 18000, 18000, 20000]];
+		,[12000, 18000, 18000, 18000, 18000, 20000]];
 var selItem = [];
 
 $(function(){
 	$("#market_name").val(getParameter("to"));
 	$('#loading').hide(); //첫 시작시 로딩바를 숨겨준다.
+	
+	if(isMobile()){
+		$("body").addClass('mobile');
+		$("#txt_glassSort").click(function(){
+			$("#ul_glassSort").show();
+		});	
+	}
 
 	// 01. 거울 색상 선택
 	$(".glassSort li").click(function(){
@@ -18,17 +25,29 @@ $(function(){
 
 		$(".glass_img img").attr('src', imgSrc);
 
+		if(isMobile()){
+			$("#ul_glassSort").hide();
+			$("#txt_glassSort").text($(this).find('a').text());
+		}
+		
+		if($(this).hasClass('thick')){
+			$("#li_thick").show();
+		}else{
+			$("#li_thick").hide();
+		}
+
 		initStatus('A');
 
 		$("#glasstype_select").attr("disabled", false);
-		$("#glasssize_width").attr("disabled", false);
-		$("#glasssize_height").attr("disabled", false);
-		$("#glasssize_count").attr("disabled", false);
 	});
 
 	// 값 변경
 	$("#glasstype_select").change(function(){
 		initStatus();	
+		$("#glasssize_width").attr("disabled", false);
+		$("#glasssize_height").attr("disabled", false);
+		$("#glasssize_count").attr("disabled", false);
+
 		
 		// 원형 > 지름값 / 이외에는 가로 * 세로
 		if($(this).val() == "1"){
@@ -167,6 +186,7 @@ function initStatus(type){
 	$("#glasssize_count").val("1");
 	$("#glasssize_price").val("");
 	$('input[name=chk_sheet]').prop('checked', false);
+	$('input[name=chk_thick]').prop('checked', false);
 	$('input[name=chk_safe_corner]').prop('checked', false);
 }
 
@@ -236,40 +256,53 @@ function calJa (n){
 // 거울(물품) 담기
 function addCart(){	
 	// 빈값 체크
-	if($('#glasstype_select').val() == ""){
-		layer_popup($("#layer_alert"), "A", '모양을 선택하세요.');
-		$("#glasstype_select").focus();
+	if($(".glassSort li.selected").length == 0){
+		layer_popup($("#layer_alert"), "A", '색상을 선택하세요.', $(".glassSort"));
 		return;
 	}
 
-	if($('#glasssize_width').val() == ""){
-		layer_popup($("#layer_alert"), "A", '가로 값을 입력하세요.');
-		$("#glasssize_width").focus();
+	
+	if($('#glasstype_select').val() == ""){
+		layer_popup($("#layer_alert"), "A", '모양을 선택하세요.', $("#glasstype_select"));
 		return;
+	}
+
+	if($('#glasstype_select').val() == "1"){
+		if($('#glasssize_diameter').val() == ""){
+			layer_popup($("#layer_alert"), "A", '지름 값을 입력하세요.', $("#glasssize_diameter"));
+			return;
+		}
+	} else{
+		if($('#glasssize_width').val() == ""){
+			layer_popup($("#layer_alert"), "A", '가로 값을 입력하세요.', $("#glasssize_width"));
+			return;
+		}
+		
+		if($('#glasssize_height').val() == ""){
+			layer_popup($("#layer_alert"), "A", '세로 값을 입력하세요.', $("#glasssize_height"));
+			return;
+		}
 	}
 	
-	if($('#glasssize_height').val() == ""){
-		layer_popup($("#layer_alert"), "A", '세로 값을 입력하세요.');
-		$("#glasssize_height").focus();
-		return;
-	}
 	
 	if($('#glasssize_count').val() == ""){
-		layer_popup($("#layer_alert"), "A", '수량을 입력하세요.');
-		$("#glasssize_count").focus();
+		layer_popup($("#layer_alert"), "A", '수량을 입력하세요.', $("#glasssize_count"));
+		return;
+	}
+
+	if($("#li_thick").is(':visible') && $('input[name=chk_thick]:checked').val() == undefined){
+		layer_popup($("#layer_alert"), "A", '두께를 선택하세요.', $("#input[name=chk_thick]"));
 		return;
 	}
 	
 	if($('input[name=chk_sheet]:checked').val() == undefined){
-		layer_popup($("#layer_alert"), "A", '비상방지안전시트를 선택하세요.');
-		$("#input[name=chk_sheet]").focus();
+		layer_popup($("#layer_alert"), "A", '비상방지안전시트를 선택하세요.', $("#input[name=chk_sheet]"));
 		return;
 	}
 	
 	
 	if($('#glasstype_select').val() == "0" && $('input[name=chk_safe_corner]:checked').val() == undefined){
-		layer_popup($("#layer_alert"), "A", '안전모서리(4면)를 선택하세요.');
-		$("#input[name=chk_safe_corner]").focus();
+		layer_popup($("#layer_alert"), "A", '안전모서리(4면)를 선택하세요.', $("#input[name=chk_safe_corner]"));
 		return;
 	}
 
@@ -277,10 +310,18 @@ function addCart(){
 	var tot_len = parseInt($('#glasssize_width').val()) + parseInt($('#glasssize_height').val());
 	var option_deliver = "F";
 	
+	
 	html = "<tr>";
 	html += "	<input type='hidden' name='index' value='" + $('#glass_cal_cart > tbody tr').length + "'/>";
+	html += "	<input type='hidden' name='type' value='" + $(".glassSort ul li.selected a")[0].innerText + "'/>";
+	html += "	<input type='hidden' name='shape' value='" + $("#glasstype_select option:checked").text() + "'/>";
 	html += "	<input type='hidden' name='width' value='" + $('#glasssize_width').val() + "'/>";
 	html += "	<input type='hidden' name='height' value='" + $('#glasssize_height').val() + "'/>";
+	html += "	<input type='hidden' name='thick' value='" + $('input[name=chk_thick]:checked').val() + "'/>";
+	html += "	<input type='hidden' name='count' value='" + $("#glasssize_count").val() + "'/>";
+	html += "	<input type='hidden' name='safeCorner' value='" + $('input[name=chk_safe_corner]:checked').val() + "'/>";
+	html += "	<input type='hidden' name='sheet' value='" + $('input[name=chk_sheet]:checked').val() + "'/>";
+	html += "	<input type='hidden' name='price' value='" + $("#glasssize_price").val() + "'/>";
 	
 	if($("#glasstype_select").val() == "1"){		
 		if(tot_len > 1800){
@@ -293,25 +334,67 @@ function addCart(){
 		}
 		html += "	<input type='hidden' name='deliver' value='" + option_deliver + "'/>";
 	}
-	
 	html += "	<td class='glasscheck'>";
 	html += "		<input type='checkbox'/>";
 	html += "	</td>";
-	html += "	<td class='glassname'>" + $(".glassSort ul li.selected a")[0].innerText + "<br>[ " + $('#glasssize_width').val() + " X " + $('#glasssize_height').val() + " ] </td>" ;
-	html += "	<td class='glasscount'>" + format_num($("#glasssize_count").val()) + "</td>";
-	html += "	<td class='glasstype'>" + $("#glasstype_select option:checked").text();
-	if($('input[name=chk_safe_corner]:checked').val() == "추가"){
-		html += "<br>[ 안전모서리(4면) 추가 ]";
-	}
-	html += "</td>";
-	html += "	<td class='glasssheet'>" + $('input[name=chk_sheet]:checked').val() + "</td>";
-	html += "	<td class='glassprice'>" + $("#glasssize_price").val() + "</td>";
+		
+	if(isMobile() && screen.availWidth > 800){
+		html += "	<td colspan='5' class='glassAll'>";
+		html += "		<ul>";
+		html += "			<li>";
+		html += '				<span class="td_title">제품명</span>';		
+		html += "				<span class='td_value'>" + $(".glassSort ul li.selected a")[0].innerText + "[ " + $('#glasssize_width').val() + " X " + $('#glasssize_height').val();
+
+		if($("#li_thick").is(':visible')){
+			html += " X " + $('input[name=chk_thick]:checked').val();
+		}
+		html += " ]</span>";
+		html += "			</li><li>";
+		html += '				<span class="td_title">수량</span>';		
+		html += "				<span class='td_value'>" + format_num($("#glasssize_count").val()) + "</span>";
+		html += "			</li><li>";
+		html += '				<span class="td_title">모양</span>';		
+		html += "				<span class='td_value'>" + $("#glasstype_select option:checked").text();
+		if($('input[name=chk_safe_corner]:checked').val() == "추가"){
+			html += " [ 안전모서리(4면) 추가 ]";
+		}		
+		html += "</span>";
+		html += "			</li><li>";
+		html += '				<span class="td_title td_plus"> + 비상방지안전시트</span>';		
+		html += "				<span class='td_value'>" + $('input[name=chk_sheet]:checked').val() + "</span>";
+		html += "			</li><li>";
+		html += '				<span class="td_title">금액</span>';		
+		html += "				<span class='td_value'>" + $("#glasssize_price").val() + "</span>";
+		html += "			</li>";		
+		html += "		</ul>";
+		html += "	</td>";
+	}else{
+		
+		html += "	<td class='glassname'>" + $(".glassSort ul li.selected a")[0].innerText + "<br>[ " + $('#glasssize_width').val() + " X " + $('#glasssize_height').val();
+		
+		if($("#li_thick").is(':visible')){
+			html += " X " + $('input[name=chk_thick]:checked').val();
+		}
+		html += " ]</td>";
+		
+		html += "	<td class='glasscount'>" + format_num($("#glasssize_count").val()) + "</td>";
+		html += "	<td class='glasstype'>" + $("#glasstype_select option:checked").text();
+		if($('input[name=chk_safe_corner]:checked').val() == "추가"){
+			html += "<br>[ 안전모서리(4면) 추가 ]";
+		}
+		html += "</td>";
+		html += "	<td class='glasssheet'>" + $('input[name=chk_sheet]:checked').val() + "</td>";
+		html += "	<td class='glassprice'>" + $("#glasssize_price").val() + "</td>";
+		
+		html += "</tr>";
 	
-	html += "</tr>";
+	}
 	
 	$('#glass_cal_cart > tbody').append(html);
 	
 	cal_total_price();
+	
+	initStatus('A');
 }
 
 // 장바구니에 담긴 값의 토탈 값
@@ -319,12 +402,12 @@ function cal_total_price(){
 	var tot_cnt = 0;
 	var tot_price = 0;
 	
-	$('#glass_cal_cart > tbody .glasscount').each(function(){
-		tot_cnt += parseInt($(this).text().replace(/,/g, ""));
+	$('#glass_cal_cart > tbody input[name="count"]').each(function(){
+		tot_cnt += parseInt($(this).val().replace(/,/g, ""));
 	});
 	
-	$('#glass_cal_cart > tbody .glassprice').each(function(){
-		tot_price += parseInt($(this).text().replace(/,/g, ""));
+	$('#glass_cal_cart > tbody input[name="price"]').each(function(){
+		tot_price += parseInt($(this).val().replace(/,/g, ""));
 	});
 	
 	$("#tot_count").text(format_num(tot_cnt));
@@ -372,20 +455,20 @@ function send_email(){
 	}
 	
 	if($('#order_name').val() == "" ){
-		layer_popup($("#layer_alert"), "A", '주문자 명을 입력해주세요.');
+		layer_popup($("#layer_alert"), "A", '주문자 명을 입력해주세요.', $('#order_name'));
 		return;
 	}
 	if($('#order_tel').val() == "" ){
-		layer_popup($("#layer_alert"), "A", '연락처를 입력해주세요.');
+		layer_popup($("#layer_alert"), "A", '연락처를 입력해주세요.', $('#order_tel'));
 		return;
 	}
 	if($('#order_email').val() == "" ){
-		layer_popup($("#layer_alert"), "A", '이메일을 입력해주세요.');
+		layer_popup($("#layer_alert"), "A", '이메일을 입력해주세요.', $('#order_email'));
 		return;
 	}
 
 	if($("#agree_privacy:checked").length == 0 ){
-		layer_popup($("#layer_alert"), "A", '개인정보 취급동의에 체크해주세요.');
+		layer_popup($("#layer_alert"), "A", '개인정보 취급동의에 체크해주세요.', $("#agree_privacy:checked"));
 		return;
 	}	
 	
@@ -403,10 +486,16 @@ function send_email(){
 		if($(this).find('input[name="index"]').val() != 0){
 			cartTxt += "/"
 		}
-		cartTxt += $(this).find('.glassname').text() + "|" + $(this).find('.glasscount').text() + "|" + $(this).find('.glasstype').text() + "|" ;
-		cartTxt += $(this).find('.glasssheet').text() + "|" + $(this).find('.glassprice').text();
+		cartTxt += $(this).find('input[name="type"]').val() + "|";
+		cartTxt += $(this).find('input[name="shape"]').val() + "|" 
+		cartTxt += $(this).find('input[name="width"]').val() + "|" ;
+		cartTxt += $(this).find('input[name="height"]').val() + "|" ;
+		cartTxt += $(this).find('input[name="thick"]').val() + "|" ;
+		cartTxt += $(this).find('input[name="count"]').val() + "|" ;
+		cartTxt += $(this).find('input[name="safeCorner"]').val() + "|" ;
+		cartTxt += $(this).find('input[name="sheet"]').val() + "|" ;
+		cartTxt += $(this).find('input[name="price"]').val();
 	});
-	
 	
 	$('#cart').text(cartTxt);
 	
@@ -415,7 +504,7 @@ function send_email(){
 	$.ajax({
 		data : queryString,
 		type : 'post',
-		url : 'https://script.google.com/macros/s/AKfycbzuqcEpVUqr4UAWv8FecshWEfe1fyDucohxO5eERuS0Mf7imldayxck_sZdujH0OFcsEg/exec',
+		url : 'https://script.google.com/macros/s/AKfycbwiVjhq9UPboKp5oil8HXugCip0pwbnldxBs_HRDlbJwuwUZ5gGnO-3HKdY18_4HLjj/exec',
 		dataType : 'json',
 		error: function(xhr, status, error){
 			$("#loading").hide();
@@ -429,6 +518,10 @@ function send_email(){
 	
 }
 
+function isMobile(){
+	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
 function getParameter(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -437,7 +530,7 @@ function getParameter(name) {
 }
 
 // 레이어 팝업
-function layer_popup(el, type, txt){
+function layer_popup(el, type, txt, focusEl){
 
 	var $el = $(el);    //레이어의 id를 $el 변수에 저장
 	var isDim = $el.parent('.dim-layer').find('.dimBg'); //dimmed 레이어를 감지하기 위한 boolean 변수
@@ -465,12 +558,17 @@ function layer_popup(el, type, txt){
 		$el.find('a.btn-layerClose').click(function(){
 			$el.hide();
 			isDim ? $('.dim-layer').fadeOut() : $el.fadeOut(); // 닫기 버튼을 클릭하면 레이어가 닫힌다.
+			
+			if(focusEl){focusEl.focus();}
 			return false;
 		});
 
 		$('.layer .dimBg').click(function(){
 			$el.hide();
 			$('.dim-layer').fadeOut();
+
+			if(focusEl){focusEl.focus();}
+			
 			return false;
 		});
 	}
