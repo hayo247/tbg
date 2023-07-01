@@ -67,7 +67,7 @@ $(function(){
 			
 		set_cal_price();
 	});
-
+	
 	// 비상방지안전시트 
 	$("input[name=chk_sheet], input[name=chk_safe_corner]").change(function(){
 		set_cal_price();
@@ -75,6 +75,8 @@ $(function(){
 	
 	// 지름 값
 	$('#glasssize_diameter').on('keyup', function(){
+		$(this).val($(this).val().replace(/[^0-9]/g, ""));
+		
 		if(parseInt($('#glasssize_diameter').val().replace(/[^0-9]/, '')) > 1500){
 			layer_popup($("#layer_alert"), "A", "선택하신 거울의 최대 지름은 1500mm 를 초과하실 수 없습니다.");
 			$('#glasssize_diameter').val("1500");
@@ -103,6 +105,8 @@ $(function(){
 	});
 	
 	$('#glasssize_width, #glasssize_height, #glasssize_count').on('keyup', function(){			
+		$(this).val($(this).val().replace(/[^0-9]/g, ""));
+		
 		// 거울 : 가로 X 세로 : 2400 * 1200 / 1200 * 2400 , 최소값 : 100mm
 		if(parseInt($('#glasssize_width').val().replace(/[^0-9]/, '')) > 2400){
 			layer_popup($("#layer_alert"), "A", '선택하신 거울의 최대 가로 폭은 2400mm 를 초과하실 수 없습니다.');
@@ -126,6 +130,7 @@ $(function(){
 	
 	$('#glasssize_width, #glasssize_height, #glasssize_diameter').on('focusout', function(){			
 		// 거울 : 가로 X 세로 : 2400 * 1200 / 1200 * 2400 , 최소값 : 100mm
+		$(this).val($(this).val().replace(/[^0-9]/g, ""));
 		
 		if(parseInt($(this).val().replace(/[^0-9]/, '')) < 100){
 			layer_popup($("#layer_alert"), "A", '선택하신 거울의 최소 폭은 100mm를 미만하실 수 없습니다.');
@@ -167,6 +172,7 @@ $(function(){
 	$("#send_email").click(function(){	
 		send_email();
 	});
+	
 })
 .ajaxStart(function(){ //ajax실행시 로딩바를 보여준다.
 	layer_popup($("#loading"));
