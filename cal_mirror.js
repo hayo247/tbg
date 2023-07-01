@@ -486,15 +486,15 @@ function send_email(){
 		if($(this).find('input[name="index"]').val() != 0){
 			cartTxt += "/"
 		}
-		cartTxt += $(this).find('input[name="type"]').text() + "|";
-		cartTxt += $(this).find('input[name="shape"]').text() + "|" 
-		cartTxt += $(this).find('input[name="width"]').text() + "|" ;
-		cartTxt += $(this).find('input[name="height"]').text() + "|" ;
-		cartTxt += $(this).find('input[name="thick"]').text() + "|" ;
-		cartTxt += $(this).find('input[name="count"]').text() + "|" ;
-		cartTxt += $(this).find('input[name="safeCorner"]').text() + "|" ;
-		cartTxt += $(this).find('input[name="sheet"]').text() + "|" ;
-		cartTxt += $(this).find('input[name="price"]').text() + "|" ;
+		cartTxt += $(this).find('input[name="type"]').val() + "|";
+		cartTxt += $(this).find('input[name="shape"]').val() + "|" 
+		cartTxt += $(this).find('input[name="width"]').val() + "|" ;
+		cartTxt += $(this).find('input[name="height"]').val() + "|" ;
+		cartTxt += $(this).find('input[name="thick"]').val() + "|" ;
+		cartTxt += $(this).find('input[name="count"]').val() + "|" ;
+		cartTxt += $(this).find('input[name="safeCorner"]').val() + "|" ;
+		cartTxt += $(this).find('input[name="sheet"]').val() + "|" ;
+		cartTxt += $(this).find('input[name="price"]').val();
 	});
 	
 	$('#cart').text(cartTxt);
@@ -504,7 +504,7 @@ function send_email(){
 	$.ajax({
 		data : queryString,
 		type : 'post',
-		url : 'https://script.google.com/macros/s/AKfycbw2s60aFti22w7QK1IdzkpuO65MdKUHm5wtre1MziAoQNIQOOs4gyhuE45dG4qFt7UJ8g/exec',
+		url : 'https://script.google.com/macros/s/AKfycbz0Ov3ETPPXqVyv-MLll5eoYV_3H54uVtLLYPO6ZiukmDIjGzMuXoZjJtq13WS0NtNs/exec',
 		dataType : 'json',
 		error: function(xhr, status, error){
 			$("#loading").hide();
