@@ -180,6 +180,9 @@ function fn_glassSortUl(el){
 
 		$("#glasstype_select").attr("disabled", false);
 	}else{
+		imgSrc = defImgSrc + "defalt.png";
+		$(".glass_img img").attr('src', imgSrc);
+
 		initStatus('A');
 
 		$("#glasstype_select").attr("disabled", true);	
