@@ -37,7 +37,6 @@ $(function(){
 		}
 
 		initStatus('A');
-
 		$("#glasstype_select").attr("disabled", false);
 	});
 
