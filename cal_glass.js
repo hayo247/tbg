@@ -10,44 +10,26 @@ $(function(){
 	
 	if(isMobile()){
 		$("body").addClass('mobile');
-		$("#txt_glassSort").click(function(){
-			$("#ul_glassSort").show();
-		});	
+		$("#sel_glassSort").show();
+		$("#txt_glassSort").hide();
+		$("#ul_glassSort").hide();
 	}
+	
+	// 01. 거울 색상 선택 select
+	$("#sel_glassSort").change(function(){
+		fn_glassSortUl($(".glassSort li input[value='" + $(this).val() + "']").parents('li'));
+	});
 
 	// 01. 거울 색상 선택
 	$(".glassSort li").click(function(){
-		$(".glassSort li").removeClass('selected');
-		$(this).addClass('selected');
-		
-		imgSrc = defImgSrc + "glass_" + $(this).find('input').val() + ".jpg";
-		selItem = item[$(this).data('item')];	
-
-		$(".glass_img img").attr('src', imgSrc);
-
-		if(isMobile()){
-			$("#ul_glassSort").hide();
-			$("#txt_glassSort").text($(this).find('a').text());
-		}
-		
-		if($(this).hasClass('thick')){
-			$("#li_thick").show();
-		}else{
-			$("#li_thick").hide();
-		}
-
-		initStatus('A');
-
-		$("#glasstype_select").attr("disabled", false);
+		fn_glassSortUl(this);
 	});
 
 	// 값 변경
 	$("#glasstype_select").change(function(){
 		initStatus();	
-		$("#glasssize_width").attr("disabled", false);
-		$("#glasssize_height").attr("disabled", false);
-		$("#glasssize_count").attr("disabled", false);
-
+		
+		$(".step2 input").attr("disabled", false);
 		
 		// 원형 > 지름값 / 이외에는 가로 * 세로
 		if($(this).val() == "1"){
@@ -67,7 +49,7 @@ $(function(){
 			
 		set_cal_price();
 	});
-
+	
 	// 비상방지안전시트 
 	$("input[name=chk_sheet], input[name=chk_safe_corner]").change(function(){
 		set_cal_price();
@@ -75,6 +57,8 @@ $(function(){
 	
 	// 지름 값
 	$('#glasssize_diameter').on('keyup', function(){
+		$(this).val($(this).val().replace(/[^0-9]/g, ""));
+		
 		if(parseInt($('#glasssize_diameter').val().replace(/[^0-9]/, '')) > 1500){
 			layer_popup($("#layer_alert"), "A", "선택하신 거울의 최대 지름은 1500mm 를 초과하실 수 없습니다.");
 			$('#glasssize_diameter').val("1500");
@@ -103,6 +87,8 @@ $(function(){
 	});
 	
 	$('#glasssize_width, #glasssize_height, #glasssize_count').on('keyup', function(){			
+		$(this).val($(this).val().replace(/[^0-9]/g, ""));
+		
 		// 거울 : 가로 X 세로 : 2400 * 1200 / 1200 * 2400 , 최소값 : 100mm
 		if(parseInt($('#glasssize_width').val().replace(/[^0-9]/, '')) > 2400){
 			layer_popup($("#layer_alert"), "A", '선택하신 거울의 최대 가로 폭은 2400mm 를 초과하실 수 없습니다.');
@@ -126,6 +112,7 @@ $(function(){
 	
 	$('#glasssize_width, #glasssize_height, #glasssize_diameter').on('focusout', function(){			
 		// 거울 : 가로 X 세로 : 2400 * 1200 / 1200 * 2400 , 최소값 : 100mm
+		$(this).val($(this).val().replace(/[^0-9]/g, ""));
 		
 		if(parseInt($(this).val().replace(/[^0-9]/, '')) < 100){
 			layer_popup($("#layer_alert"), "A", '선택하신 거울의 최소 폭은 100mm를 미만하실 수 없습니다.');
@@ -167,10 +154,39 @@ $(function(){
 	$("#send_email").click(function(){	
 		send_email();
 	});
+	
 })
 .ajaxStart(function(){ //ajax실행시 로딩바를 보여준다.
 	layer_popup($("#loading"));
 })
+
+function fn_glassSortUl(el){
+	$(".glassSort li").removeClass('selected');
+	$(el).addClass('selected');
+	
+	if($(el).find('input').val()){
+		imgSrc = defImgSrc + "glass_" + $(el).find('input').val() + ".jpg";
+		selItem = item[$(el).data('item')];	
+
+		$(".glass_img img").attr('src', imgSrc);
+		
+		if($(el).hasClass('thick')){
+			$("#li_thick").show();
+		}else{
+			$("#li_thick").hide();
+		}
+
+		initStatus('A');
+
+		$("#glasstype_select").attr("disabled", false);
+	}else{
+		initStatus('A');
+
+		$("#glasstype_select").attr("disabled", true);	
+	}
+	
+	$(".step2 input").attr("disabled", true);
+}
 
 // 값 초기화
 function initStatus(type){
@@ -479,6 +495,12 @@ function send_email(){
 	$('#price_count').val($('#tot_count').text());
 	$('#price_option').val($('#option_pay_count').text());
 	$('#memo').val($('#order_memo').val());
+
+	if($(".option_deliver").is(':visible')){
+		$('#deliver').val('추가');
+	}else{
+		$('#deliver').val('없음');
+	}
 	
 	var cartTxt = "";
 	
@@ -504,7 +526,7 @@ function send_email(){
 	$.ajax({
 		data : queryString,
 		type : 'post',
-		url : 'https://script.google.com/macros/s/AKfycbwiVjhq9UPboKp5oil8HXugCip0pwbnldxBs_HRDlbJwuwUZ5gGnO-3HKdY18_4HLjj/exec',
+		url : 'https://script.google.com/macros/s/AKfycbzJQgSv85w1IP8Bxl-X0MZ7LHvbq_sYoZofPYLAX9Cz5OtUGsXkoeYhNz7UJDqAlCE9/exec',
 		dataType : 'json',
 		error: function(xhr, status, error){
 			$("#loading").hide();
