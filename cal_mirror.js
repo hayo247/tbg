@@ -10,21 +10,35 @@ $(function(){
 	
 	if(isMobile()){
 		$("body").addClass('mobile');
-		$("#sel_glassSort").show();
-		$("#txt_glassSort").hide();
-		$("#ul_glassSort").hide();
+		$("#txt_glassSort").click(function(){
+			$("#ul_glassSort").show();
+		});	
 	}
-	
-	// 01. 거울 색상 선택 select
-	$("#sel_glassSort").click(function(){
-		//$(".glassSort li").removeClass('selected');
-		//$(".glassSort li input[value='" + $(this).val() + "']").parents('li').addClass('seleced');
-		fn_glassSortUl($(".glassSort li input[value='" + $(this).val() + "']").parents('li'));
-	});
 
 	// 01. 거울 색상 선택
 	$(".glassSort li").click(function(){
-		fn_glassSortUl(this);
+		$(".glassSort li").removeClass('selected');
+		$(this).addClass('selected');
+		
+		imgSrc = defImgSrc + "glass_" + $(this).find('input').val() + ".jpg";
+		selItem = item[$(this).data('item')];	
+
+		$(".glass_img img").attr('src', imgSrc);
+
+		if(isMobile()){
+			$("#ul_glassSort").hide();
+			$("#txt_glassSort").text($(this).find('a').text());
+		}
+		
+		if($(this).hasClass('thick')){
+			$("#li_thick").show();
+		}else{
+			$("#li_thick").hide();
+		}
+
+		initStatus('A');
+
+		$("#glasstype_select").attr("disabled", false);
 	});
 
 	// 값 변경
@@ -163,28 +177,6 @@ $(function(){
 .ajaxStart(function(){ //ajax실행시 로딩바를 보여준다.
 	layer_popup($("#loading"));
 })
-
-function fn_glassSortUl(el){
-	$(".glassSort li").removeClass('selected');
-	$(el).addClass('selected');
-	
-	if($(el).find('input').val()){
-		imgSrc = defImgSrc + "glass_" + $(el).find('input').val() + ".jpg";
-		selItem = item[$(el).data('item')];	
-
-		$(".glass_img img").attr('src', imgSrc);
-		
-		if($(el).hasClass('thick')){
-			$("#li_thick").show();
-		}else{
-			$("#li_thick").hide();
-		}
-
-		initStatus('A');
-
-		$("#glasstype_select").attr("disabled", false);
-	}
-}
 
 // 값 초기화
 function initStatus(type){
