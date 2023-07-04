@@ -1,4 +1,4 @@
-html, body, table, th, td, textarea, h1, p {font-family:'InfinitySans-RegularA1',sans-serif;padding:0;margin:0;font-size:13px;font-weight:400}
+html, body, table, th, td, textarea, h1, p, select {font-family:'InfinitySans-RegularA1',sans-serif;padding:0;margin:0;font-size:13px;font-weight:400}
 body {color:#222a3b;max-height:4300px;overflow-y:scroll;overflow-x:hidden;margin-bottom:100px;width:100%;position:relative}
 table {border:0;padding:0;margin:0;width:100%}
 a         {font-style:normal;text-decoration:none;color:#555;cursor:pointer;outline:none}
@@ -78,6 +78,7 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 .step1{margin-top:10px}
 .step1:after{display:block;clear:both;content:""}
 .step1 .glassSort{margin:0 0 20px 0}
+.step1 .glassSort select{width: 100%; font-size: 20px; padding: 10px; border: 2px solid #4374D9; border-radius: 5px;}
 .step1 .glassSort ul{width:100%;display:inline-block;list-style:none;box-sizing:border-box;padding:0;margin:0}
 .step1 .glassSort ul li{float:left;width:20%;text-align:center;color:#555}
 .step1 .glassSort ul li .glass_group{background:#f8f8f8;display:block;padding:10px 0;margin:3px 5px;border:1px solid #fff;position:relative;font-size:13px;box-sizing:border-box;border-radius:4px;position:relative;letter-spacing:-1px;box-shadow:-1px -1px 0px rgba(0,0,0,0.1); letter-spacing:.5rem}
@@ -85,6 +86,21 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 .step1 .glassSort ul li.selected .glass_group, .CutItem_SelectBox .glassSort ul li.selected .glass_group:hover{border:1px solid #4374D9;box-sizing:border-box;color:#fcff00;font-weight:700;background:#4374D9}
 .step1 .glassSort ul li.selected .glass_group:after {color:#fff}
 .step1 .scroll_help{display:none}
+
+.step1 .glassTypeSort .txtType { padding: 3px 5px;}
+.step1 .glassTypeSort .hrDash { border-top: 2px dashed #ccc; margin:10px 5px;}
+.step1 .glassTypeSort {margin:0 0 20px 0;width:100%;display:inline-block;list-style:none;background:#f8f8f8;padding:5px 0;margin:3px 5px;border:1px solid #fff;font-size:13px;box-sizing:border-box;border-radius:4px;box-shadow:-1px -1px 0px rgba(0,0,0,0.1);}
+.step1 .glassTypeSort ul {width:100%;display:inline-block;list-style:none;box-sizing:border-box;padding:0;margin:0;}
+.step1 .glassTypeSort ul li{float:left;width:20%;text-align:center;color:#555}
+.step1 .glassTypeSort ul li .glass_group{background:#fff;display:block;padding:10px 0;margin:3px 5px;border:1px solid #fff;position:relative;font-size:13px;box-sizing:border-box;border-radius:4px;position:relative;letter-spacing:-1px;box-shadow:-1px -1px 0px rgba(0,0,0,0.1); letter-spacing:.5rem}
+.step1 .glassTypeSort ul li .glass_group:hover{background:#4374D9;color:#fff;cursor:pointer;font-weight:700}
+.step1 .glassTypeSort ul li.selected .glass_group, .CutItem_SelectBox .glassSort ul li.selected .glass_group:hover{border:1px solid #4374D9;box-sizing:border-box;color:#fcff00;font-weight:700;background:#4374D9}
+.step1 .glassTypeSort ul li.selected .glass_group:after {color:#fff}
+.step1 .glassTypeSort ul li .effect_icon{display:block;font-size:8px;padding:1px 3px;position:absolute;top:-1px;background-color:#999}
+.step1 .glassTypeSort ul li .effect_icon.step_0{left:-1px}
+.step1 .glassTypeSort ul li .effect_icon.step_1{left:23px}
+.step1 .glassTypeSort ul li .effect_icon.bestico{background:#4374D9;color:#fcff00}
+.step1 .glassTypeSort ul li .effect_icon.saleico{background:#f32d3d;color:#fff}
 
 .step2{display:block}
 .step2:after{display:block;clear:both;content:""}
