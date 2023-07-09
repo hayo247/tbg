@@ -357,7 +357,7 @@ function addCart(){
 	html += "		<input type='checkbox'/>";
 	html += "	</td>";
 		
-	if(isMobile() && screen.availWidth > 800){
+	if(isMobile() && !$(".fix_head_table thead").is(':visible')){
 		html += "	<td colspan='5' class='glassAll'>";
 		html += "		<ul>";
 		html += "			<li>";
