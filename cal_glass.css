@@ -264,6 +264,7 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 	.mobile .box-guide .box-guide-information{display:none; position: absolute; left: 0; top: 4.5rem; z-index: 20; min-width: 150%; max-width: 190%; padding: 1rem 3rem 1rem 1rem; border: 1px solid #233549; border-radius: 2px; font-size: 2rem; line-height: 2.3rem}
 	.mobile .box-guide .box-guide-close {background:url(./img/icon_x.png); background-size:100%; position: absolute; top: 7px;right: 1.3rem;width: 2rem; height: 2rem;line-height: 999em; border:none;}
 
+	.mobile .step1, .mobile .step2, .mobile .step3{padding:0 40px}
 	.mobile	.step1{margin-top:20px}
 	
 	.mobile .step1 .glassSort {position: relative; padding: 12px 0 }
