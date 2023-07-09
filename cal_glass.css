@@ -248,6 +248,9 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 	.mobile table, .mobile tr, .mobile th, .mobile td, .mobile textarea, .mobile h1, .mobile p {font-size: 2.7rem !important;}
 	.mobile input[type="text"]{background:#fff;border:2px solid #B2CCFF;-webkit-appearance:none;padding:0 7px;font-size:3rem;border-radius:5px;outline:none;height:5rem}
 	.mobile input[type="number"]{background:#fff;border:2px solid #B2CCFF;-webkit-appearance:none;padding:0 7px;font-size:3rem;border-radius:5px;outline:none;height:5rem}
+	
+	.mobile input[type="text"][disabled="disabled"]{background-color:#e9e9e9}
+	.mobile input[type="number"][disabled="disabled"]{background-color:#e9e9e9}
 	.mobile input[type="radio"]{width:3rem; height:3rem}
 	.mobile input[type="checkbox"]{width:2.7rem; height:2.7rem}
 	
