@@ -33,6 +33,20 @@
 			<div class="step1">
     		<h2 class="step_title">01. 구매하실 거울의 색상를 선택해주세요.</h2>
     		<div class="glassSort">
+				<select id="sel_glassSort" class="nonDisplay">
+					<option value="">색상을 선택하세요.</option>
+					<option value="01">은경</option>
+					<option value="02">흑경</option>
+					<option value="03">브론즈경</option>
+					<option value="04">그레이경</option>
+					<option value="05">청경</option>
+					<option value="06">블루경</option>
+					<option value="07">골드경</option>
+					<option value="08">옐로우경</option>
+					<option value="09">와인레드경</option>
+					<option value="10">로즈골드경</option>
+				</select>
+
     			<span id="txt_glassSort" class="mobile_select_glasssort">색상을 선택하세요.</span>
     			<input type="hidden" id="selected_glass_group" name="selected_glass_group">
     			<ul id="ul_glassSort">
@@ -103,20 +117,20 @@
     				<li class="_li_basic_val">
     					<b class="inputTitle">가 로</b>
     					<span class="inputData">
-    						<input type="text" id="glasssize_width" name="glasssize_width" disabled="disabled" class="textField" numberonly=""><b class="dataUnit">mm</b>
+    						<input type="number" id="glasssize_width" name="glasssize_width" disabled="disabled" class="textField" numberonly=""><b class="dataUnit">mm</b>
     					</span>
     				</li>
     				<li class="_li_basic_val">
     					<b class="inputTitle">세 로</b>
     					<span class="inputData">
-    						<input type="text" id="glasssize_height" name="glasssize_height" disabled="disabled" class="textField" numberonly=""><b class="dataUnit">mm</b>
+    						<input type="number" id="glasssize_height" name="glasssize_height" disabled="disabled" class="textField" numberonly=""><b class="dataUnit">mm</b>
     					</span>
     				</li>
 					
     				<li class="_li_circle_val" style="display:none;">
     					<b class="inputTitle">지 름</b>
     					<span class="inputData">
-    						<input type="text" id="glasssize_diameter" name="glasssize_diameter" class="textField" numberonly=""><b class="dataUnit">mm</b>
+    						<input type="number" id="glasssize_diameter" name="glasssize_diameter" class="textField" numberonly=""><b class="dataUnit">mm</b>
     					</span>
     				</li>
 					<li id="li_thick"  class="nonDisplay">
@@ -130,7 +144,7 @@
     				<li>
     					<b class="inputTitle">수 량</b>
     					<span class="inputData">
-    						<input type="text" id="glasssize_count" name="glasssize_count" disabled="disabled" class="textField" numberonly="" value="1"><b class="dataUnit">EA</b>
+    						<input type="number" id="glasssize_count" name="glasssize_count" disabled="disabled" class="textField" numberonly="" value="1"><b class="dataUnit">EA</b>
     					</span>
     				</li>
     				<li>
@@ -310,6 +324,7 @@
 이용자 및 법정 대리인은 등록되어 있는 자신 혹은 당해 만 14세 미만 아동의 개인정보를 조회하거나 수정할 수 있으며 가입해지를 요청할 수 있습니다. 이용자 혹은 만 14세 미만 아동의 개인정보 조회 및 수정을 위해서는 '개인정보변경' (또는 '회원정보수정' 등)을 가입해지(동의철회)를 위해서는 "회원탈퇴"를 클릭하여 본인절차를 거치신 후 직접 열람, 정정 또는 탈퇴가 가능합니다. 혹은 개인정보관리책임자에게 서면, 전화 또는 이메일로 연락하시면 지체없이 조치하겠습니다. 귀하가 개인정보의 오류에 대한 정정을 요청하신 경우에는 정정을 완료하기전까지 당해 개인정보를 이용 또는 제공하지 않습니다. 또한 잘못된 개인정보를 제3자에게 이미 제공한 경우에는 정정 처리결과를 제 3자에게 지체없이 통보하여 정정이 이루어지도록 하겠습니다. 이용자 혹은 법정 대리인의 요청에 의해 해지 또는 삭제된 개인정보는 수닙하는 개인정보의 보유 및 이용기간에 명시된 바에 따라 처리하고 그 외의 용도로 열람 또는 이용 할 수 없도록 처리하고 있습니다.
 
 
+
 8. 개인정보수집장치의 설치,운영,거부에 관한 사항
 
 회사는 귀하의 정보를 수시로 저장하고 찾아내는 '쿠키(Cookie)'등을 운영합니다. 쿠키란 "회사"의 웹사이트를 운용하는데 이용되는 서버가 
@@ -320,6 +335,7 @@
 - 회원과 비회원의 접속 빈도나 방문 시간등을 분석, 이용자의 취향과 관심분야를 파악 및 자취 추적, 각종 이벤트 참여 정보 및 방문 횟수 파악등을 통한 타겟 마케팅 및 개인 맞춤 서비스 제공 
 - 귀하는 쿠키 설치에 대한 선택권을 가지고 있습니다. 따라서, 귀하는 웹브라우저에서 옵션을 설정하여 모든 쿠키를 허용하거나, 저장될 때마다 확인을 거치거나, 아니면 모든 쿠키의 저장을 거부할 수 있습니다. 
 * 설정방법 : - (예: 인터넷 익스플로어의 경우 웹브라우저 상단의 도구 메뉴 &gt; 인터넷 옵션 &gt; 개인정보 클릭)
+
 
 
 9. 개인정보에 관한 민원서비스
@@ -384,13 +400,11 @@
 	<input type="hidden" id="tel" name="tel"/>
 	<input type="hidden" id="deliver" name="deliver"/>
 	<input type="hidden" id="price_count" name="price_count">
-	<input type="hidden" id="price_total" name="price_total" i>
-	<input type="hidden" id="price_option" name="price_option" i>
+	<input type="hidden" id="price_total" name="price_total">
+	<input type="hidden" id="price_option" name="price_option">
 	<textarea id="cart" name="cart"></textarea>
 	<textarea id="memo" name="memo"></textarea>
     </div>
   </form>
-<div style="height: 1000px;">
-</div>
 </body>
 </html>
