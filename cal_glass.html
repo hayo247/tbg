@@ -2,11 +2,11 @@
 <head>
 <link rel="stylesheet" type="text/css" href="./cal_glass.css">
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
 <script data-cfasync="false" type="text/javascript" src="./form-submission-handler.js"></script>
 <script type="text/javascript" src="./cal_glass.js"></script>
+<script type="text/javascript" src="./val.js"></script>
 
 <script>
 	function toggleLayer(whichLayer) {
@@ -27,74 +27,66 @@
 
 </head>
 <body>
-	<div id="calDiv">
+	<form id="calfrm" onsubmit="return false;">
     	<div class="title">
     	</div>
+    	    	
 			<div class="step1">
-    		<h2 class="step_title">01. 구매하실 거울의 색상를 선택해주세요.</h2>
-    		<div class="glassSort">
-				<select id="sel_glassSort" class="nonDisplays">
-					<option value="">색상을 선택하세요.</option>
-					<option value="01">은경</option>
-					<option value="02">흑경</option>
-					<option value="03">브론즈경</option>
-					<option value="04">그레이경</option>
-					<option value="05">청경</option>
-					<option value="06">블루경</option>
-					<option value="07">골드경</option>
-					<option value="08">옐로우경</option>
-					<option value="09">와인레드경</option>
-					<option value="10">로즈골드경</option>
-				</select>
+    		<h2 class="step_title">01. 구매하실 유리의 타입를 선택해주세요.</h2>
+    		<div class="glassTypeSort">
+			
+    			<span class="txtType">1-1. 타입을 선택하세요.</span>
+    			<ul class="glass_group_step1 tp_step1">
+					<li class="" data-step="1">
+    					<input type="hidden" id="glass_group_step1_0" name="glass_group_step1[]" value="0">
+    					<a href="#" class="glass_group" gid="0">일반강화유리</a>
+    				</li>
+    				<li class="" data-step="1">
+    					<input type="hidden" id="glass_group_step1_1" name="glass_group_step1[]" value="1">
+    					<a href="#" class="glass_group" gid="1">강화백유리</a>
+    				</li>
+    				<li class="" data-step="1">
+    					<input type="hidden" id="glass_group_step1_1" name="glass_group_step1[]" value="2">
+    					<a href="#" class="glass_group" gid="2">[무광]강화사틴유리</a>
+    				</li>				
+    			</ul>
+				
+				<hr class="hrDash tp_step2">
+				
+    			<span class="txtType tp_step2">1-2. 세부 타입을 선택하세요.</span>
+    			<ul class="glass_group_step2 tp_step2 disabled">
+					<li class="" data-step="2">
+    					<input type="hidden" id="glass_group_step2_0" name="glass_group_step2[]" value="common">
+    					<a href="#" class="glass_group" gid="0">일반</a>
+    				</li>
+    				<li class="" data-step="2">
+    					<input type="hidden" id="glass_group_step2_1" name="glass_group_step2[]" value="color">
+    					<a href="#" class="glass_group" gid="1">칼라</a>
+    				</li>				
+    				<li class="" data-step="2">
+    					<input type="hidden" id="glass_group_step2_2" name="glass_group_step2[]" value="marble">
+    					<a href="#" class="glass_group" gid="1">대리석</a>
+    				</li>				
+    				<li class="" data-step="2">
+    					<input type="hidden" id="glass_group_step2_3" name="glass_group_step2[]" value="wood">
+    					<a href="#" class="glass_group" gid="1">우드</a>
+    				</li>		
+    				<li class="" data-step="2">
+    					<input type="hidden" id="glass_group_step2_4" name="glass_group_step2[]" value="pattern">
+    					<a href="#" class="glass_group" gid="1">패턴</a>
+    				</li>					
+    			</ul> 
 
-    			<span id="txt_glassSort" class="mobile_select_glasssort">색상을 선택하세요.</span>
-    			<input type="hidden" id="selected_glass_group" name="selected_glass_group">
-    			<ul id="ul_glassSort">
-					<li class="thick" data-item="0">
-    					<input type="hidden" id="glass_group_0" name="glass_group[]" value="01">
-    					<a href="#" class="glass_group" gid="0">은경</a>
-    				</li>
-    				<li class="thick" data-item="1">
-    					<input type="hidden" id="glass_group_1" name="glass_group[]" value="02">
-    					<a href="#" class="glass_group" gid="1">흑경</a>
-    				</li>
-    				<li class="thick" data-item="1">
-    					<input type="hidden" id="glass_group_2" name="glass_group[]" value="03">
-    					<a href="#" class="glass_group" gid="2">브론즈경</a>
-    				</li>
-    				<li class="" data-item="1">
-    					<input type="hidden" id="glass_group_3" name="glass_group[]" value="04">
-    					<a href="#" class="glass_group" gid="3">그레이경</a>
-    				</li>
-    				<li class="" data-item="1">
-    					<input type="hidden" id="glass_group_4" name="glass_group[]" value="05">
-    					<a href="#" class="glass_group" gid="4">청경</a>
-    				</li>
-    				<li class="" data-item="1">
-    					<input type="hidden" id="glass_group_5" name="glass_group[]" value="06">
-    					<a href="#" class="glass_group" gid="5">블루경</a>
-    				</li>
-    				<li class="" data-item="1">
-    					<input type="hidden" id="glass_group_6" name="glass_group[]" value="07">
-    					<a href="#" class="glass_group" gid="6">골드경</a>
-    				</li>
-    				<li class="" data-item="1">
-    					<input type="hidden" id="glass_group_7" name="glass_group[]" value="08">
-    					<a href="#" class="glass_group" gid="7">옐로우경</a>
-    				</li>
-    				<li class="" data-item="1">
-    					<input type="hidden" id="glass_group_8" name="glass_group[]" value="09">
-    					<a href="#" class="glass_group" gid="8">와인레드경</a>
-    				</li>
-    				<li class="" data-item="1">
-    					<input type="hidden" id="glass_group_9" name="glass_group[]" value="10">
-    					<a href="#" class="glass_group" gid="9">로즈골드경</a>
-    				</li>    				
+				<hr class="hrDash tp_step3 nonDisplay">
+				
+    			<span class="txtType tp_step3 nonDisplay">1-3. 디자인을 선택하세요.</span>
+    			<ul class="glass_group_step3 tp_step3 nonDisplay">
     			</ul>
     		</div>
     	</div>
+    	    	
     	<div class="step2">
-    		<h2 class="step_title">02. 선택하신 거울의 사이즈를 입력해주세요.</h2>
+    		<h2 class="step_title">02. 선택하신 유리의 상세정보를 입력해주세요.</h2>
     		<div class="glass_img">
 				<img src="./img/defalt.png" alt="" id="selected_glass_img" width="100%">
 			</div>
@@ -107,47 +99,36 @@
 								<option value="">선택해주세요.</option>
 								<option value="0">사각형</option>
 								<option value="1">원형</option>
-								<option value="2">아치형</option>
-								<option value="3">타원형</option>
-								<option value="4">캡슐형</option>
-								<option value="5">팔각형</option>
 							</select>
     					</span>
     				</li>
     				<li class="_li_basic_val">
     					<b class="inputTitle">가 로</b>
     					<span class="inputData">
-    						<input type="text" id="glasssize_width" name="glasssize_width" disabled="disabled" class="textField" numberonly=""><b class="dataUnit">mm</b>
+    						<input type="number" id="glasssize_width" name="glasssize_width" disabled="disabled" class="textField" numberonly=""><b class="dataUnit">mm</b>
     					</span>
     				</li>
     				<li class="_li_basic_val">
     					<b class="inputTitle">세 로</b>
     					<span class="inputData">
-    						<input type="text" id="glasssize_height" name="glasssize_height" disabled="disabled" class="textField" numberonly=""><b class="dataUnit">mm</b>
+    						<input type="number" id="glasssize_height" name="glasssize_height" disabled="disabled" class="textField" numberonly=""><b class="dataUnit">mm</b>
     					</span>
     				</li>
 					
     				<li class="_li_circle_val" style="display:none;">
     					<b class="inputTitle">지 름</b>
     					<span class="inputData">
-    						<input type="text" id="glasssize_diameter" name="glasssize_diameter" class="textField" numberonly=""><b class="dataUnit">mm</b>
+    						<input type="number" id="glasssize_diameter" name="glasssize_diameter" class="textField" numberonly=""><b class="dataUnit">mm</b>
     					</span>
     				</li>
-					<li id="li_thick"  class="nonDisplay">
-    					<b class="inputTitle">두 께
-						</b>
-    					<span class="inputData">
-							<input type="radio" name="chk_thick" value="3"> 3mm </input>
-							<input type="radio" name="chk_thick" value="5"> 5mm </input>
-    					</span>
-    				</li>
+					
     				<li>
     					<b class="inputTitle">수 량</b>
     					<span class="inputData">
-    						<input type="text" id="glasssize_count" name="glasssize_count" disabled="disabled" class="textField" numberonly="" value="1"><b class="dataUnit">EA</b>
+    						<input type="number" id="glasssize_count" name="glasssize_count" disabled="disabled" class="textField" numberonly="" value="1"><b class="dataUnit">EA</b>
     					</span>
     				</li>
-    				<li>
+    				<li id="li_sheet" class="nonDisplay li_option">
     					<b class="inputTitle">비상방지안전시트
 							<div class="box-guide">
 								<button class="button-guide" aria-expanded="false">안내글 토글</button>
@@ -157,24 +138,44 @@
 							</div>
 						</b>
     					<span class="inputData">
-							<input type="radio" id="chk_sheet1" name="chk_sheet" value="추가">
-							<label for="chk_sheet">추가 </label>
-							<input type="radio" id="chk_sheet2"  name="chk_sheet" value="제외">
-							<label for="chk_sheet2">제외 </label>
+							<input type="radio" name="chk_sheet" value="추가"> 추가 </input>
+							<input type="radio" name="chk_sheet" value="제외"> 제외 </input>
     					</span>
     				</li>
-    				<li id="li_safe_corner" class="nonDisplay" >
-    					<b class="inputTitle">안전모서리(4면)
-							<div class="box-guide">
-								<button class="button-guide" aria-expanded="false">안내글 토글</button>
-								<div class="box-guide-information">뾰족한 모서리를 5R로 살짝 라운드 가공하여 더 안전하게 사용 가능합니다.
-									<button class="box-guide-close">닫기</button>
-								</div>
-							</div>
-						</b>
+    				<li class="nonDisplay li_safe_where li_option" >
+    					<b class="inputTitle">모서리가공 위치</b>
     					<span class="inputData">
-							<input type="radio" name="chk_safe_corner" value="추가"> 추가 </input>
-							<input type="radio" name="chk_safe_corner" value="제외"> 제외 </input>
+    						<select id="sel_safe_where" name="sel_safe_where" class="ui-selectmenu-button pi_select_button textField">
+								<option value="">선택해주세요.</option>
+								<option value="0">기본(직각)</option>
+								<option value="1">전체</option>
+								<option value="2">긴쪽</option>
+								<option value="3">짧은쪽</option>
+							</select>
+    					</span>
+    				</li>
+    				<li class="nonDisplay li_safe_size li_option" >
+    					<b class="inputTitle">모서리가공 크기</b>
+    					<span class="inputData">
+    						<select id="sel_safe_size" name="sel_safe_size" class="ui-selectmenu-button pi_select_button textField">
+								<option value="">선택해주세요.</option>
+								<option value="0">기본(직각)</option
+								<option value="0">둥글게-R2(살짝)</option>
+								<option value="1">둥글게-R10(10원)</option>
+								<option value="1">둥글게-R15(패트병뚜껑)</option>
+								<option value="1">둥글게-R20</option>
+								<option value="1">둥글게-R25</option>
+								<option value="1">둥글게-R30</option>
+								<option value="1">둥글게-R35</option>
+								<option value="1">둥글게-R40</option>
+								<option value="1">둥글게-R45</option>
+								<option value="1">둥글게-R50</option>
+								<option value="1">모따기-C5</option>
+								<option value="1">모따기-C10</option>
+								<option value="1">모따기-C15</option>
+								<option value="1">모따기-C20</option>
+								<option value="1">모따기-C25</option>
+							</select>
     					</span>
     				</li>
     				<li>
@@ -183,25 +184,23 @@
     						<input type="text" id="glasssize_price" name="glasssize_price" class="textField" disabled="disabled" readonly="readonly"><b class="dataUnit ftred">원</b>
     					</span>
     				</li>
-					
-    				<li>
-    					<div class="ciBtn2" id="add_glass_cart"><span>거울 담기</span></div>
-    				</li>
     			</ul>
+				
+				<a href="#" class="ciBtn2" id="add_glass_cart"><span>유리 담기</span></a>
     		</div>
     	</div>
     	    	
-    	<div class="step3">
+    	    	<div class="step3">
     		<h2 class="step_title">03. 주문하실 견적서를 확인한 뒤 판매자에게 전송해주세요.</h2>
     		<div class="glass_add_lists">
         		<table class="fix_head_table" id="glass_cal_cart">
         			<thead>
         				<tr>
         					<th scope="row" class="glasscheck">&nbsp;</th>
-        					<th scope="row" class="glassname">제품명<br>(가로x세로)</th>
+        					<th scope="row" class="glassname">제품명(주문크기)</th>
         					<th scope="row" class="glasscount">수량</th>
-        					<th scope="row" class="glasstype">제품모양</th>
-        					<th scope="row" class="glasssheet">비상방지안전시트</th>
+        					<th scope="row" class="glasstype2">제품모양</th>
+        					<th scope="row" class="glassoption">옵션</th>
         					<th scope="row" class="glassprice">금액</th>
         				</tr>
         			</thead>
@@ -212,9 +211,9 @@
     			<tbody><tr>
     				<td>
     					<a href="#" id="select_delete_cart"><span class="BtnTypeA">선택삭제</span></a>
-    					<a href="#" id="all_delete_cart"><span class="BtnTypeA">전체삭제</span></a>
+    					<a href="" id="all_delete_cart"><span class="BtnTypeA">전체삭제</span></a>
     				</td>
-    				<td>총 수량 : <span class="fc0"><span id="tot_count">0</span>개</span></td>
+    				<td>총 갯수 : <span class="fc0"><span id="tot_count">0</span>개</span></td>
     				<td class="">총 결제금액 : <span class="fc0"><span id="tot_price">0</span>원 </span></td>
     			</tr>
     		</tbody></table>
@@ -231,9 +230,9 @@
     		<div class="cilistSend">
     			<p class="helpText">★ 주문시 수취인 성함과 동일하게 작성해주셔야 확인이 가능합니다. </p>
     			<div class="sendForm">
-    				<input type="text" id="order_name" name="order_name" placeholder="수취인 성함">
+    				<input type="text" id="order_name" name="order_name" placeholder="수취인 명">
     				 <input type="text" id="order_tel" name="order_tel" placeholder="수취인 연락처">
-    				<input type="text" id="order_email" name="order_email" placeholder="수취인 이메일(해당 이메일로 견적서가 발송이 됩니다.)">
+    				<input type="text" id="order_email" name="order_email" placeholder="수취인 이메일(없을 시 '없음'으로 표기 부탁드립니다.)">
     			</div>				
     			<div class="sendContents">
     				<p><textarea name="order_memo" id="order_memo" cols="30" rows="10" placeholder="[요청사항] 요청사항외에 주문과 관련된 문의사항은 톡톡문의 또는 Q&A에 올려주시면 빠른 견적이 가능합니다."></textarea></p>
@@ -241,13 +240,13 @@
     		</div>
     		<p class="ftred ftbold ftsize14 pd5">※ 반드시 확인 후 결제를 진행해주세요!</p>
     		<p class="ftred ftsize12">- 판매자에게 견적서를 전송해주신 뒤 결제수량대로 결제를 진행해주시면 됩니다.</p>
-    		<p class="ftsize12">- 거울 자동견적계산기의 경우 모양과 사이즈 입력시 자동으로 결제금액이 계산이 되는 시스템입니다.</p>
+    		<p class="ftsize12">- 유리 자동견적계산기의 경우 모양과 사이즈 입력시 자동으로 결제금액이 계산이 되는 시스템입니다.</p>
     		<p class="ftsize12">- 견적기 내 확인되는 차액이 발생할 경우 고객님께 별도로 연락드려 안내드리겠습니다.</p>
     		
 			<!-- 개인정보 취급방침 -->
-			<div class="agreeBox">
+			<div style="text-align:center;margin-top:50px;font-size:14px">
 				<div class="quote">
-					<label style="cursor:pointer"><input type="checkbox" id="agree_privacy" name="agree_privacy" value=""><b>개인정보 취급방침 및 마케팅메시지의 수신을 동의합니다.</b>	</label>
+					<label style="cursor:pointer"><input type="checkbox" id="agree_privacy" name="agree_privacy" value="" style="width:auto;"><b>개인정보 취급방침 및 마케팅메시지의 수신을 동의합니다.</b>	</label>
 					<p class="agreeBtn"><a class="commentLink" title="Add a comment to this entry" href="javascript:toggleLayer('commentForm');" style="color:#fff">전문보기</a></p>
 					<div id="commentForm" style="display:none;margin-top:20px;">
 						<textarea name="" id="" cols="30" rows="10">㈜태범글라스텍는 고객님들의 개인정보를 매우 소중하게 생각하며 다음과 같은 개인정보취급방침을 시행하고 있습니다.
@@ -357,6 +356,7 @@
 4. 경찰청 사이버테러대응센터 (www.ctrc.go.kr/02-392-0330)
 
 
+
 10. 기타 개인정보 취급에 관한 방침
 
 2006년 09월 25일부터 적용되는 개정 주민등록법에 의하면 타인의 주민등록번호를 도용하여 온라인 회원가입을 하는 등 타인의 주민등록번호를 부정사용하는 자는 3년 이하의 징역 또는 1천만원 이하의 벌금형에 처해질 수 있습니다. 따라서 타인의 주민등록번호를 도용하여 회원가입을 사히려는 분들 또는 회원으로 가입하신 분들은 즉시 도용행위를 중단해 주실 것을 부탁드립니다.</textarea>					</div>
@@ -369,7 +369,7 @@
     		<!-- 견적전송하기 -->
     	</div>
     	    
-    </div>	
+    </form>	
 
 	<div class="dim-layer">
 		<div class="dimBg"></div>
@@ -395,9 +395,9 @@
 	
   <form id="emailfrm" name="emailfrm" style="display:none;">
 	<input type="hidden" id="market_name" name="market_name"value="">
-	<input type="hidden" id="name" name="name"/>
-	<input type="hidden" id="email" name="email"/>
-	<input type="hidden" id="tel" name="tel"/>
+    <input type="hidden" id="name" name="name"/>
+    <input type="hidden" id="email" name="email"/>
+    <input type="hidden" id="tel" name="tel"/>
 	<input type="hidden" id="deliver" name="deliver"/>
 	<input type="hidden" id="price_count" name="price_count">
 	<input type="hidden" id="price_total" name="price_total" i>
@@ -406,7 +406,5 @@
 	<textarea id="memo" name="memo"></textarea>
     </div>
   </form>
-<div style="height: 1000px;">
-</div>
 </body>
 </html>
