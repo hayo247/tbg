@@ -263,7 +263,9 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 
 	.mobile .step1, .step2, .step3{padding:0 50px}
 	.mobile	.step1{margin-top:20px}
+	
 	.mobile .step1 .glassSort {position: relative; padding: 12px 0 }
+	.mobile .step1 .glassSort select{width: 100%; font-size: 3rem; padding: 20px; border: 2px solid #4374D9; border-radius: 5px;}
 	.mobile .step1 .glassSort .mobile_select_glasssort {display: block; height: 90px; line-height: 90px; padding: 0 10px; text-align: left; border: 2px solid #4374D9; font-size: 3.5rem; border-radius: 4px; box-shadow: 0 3px 3px rgba(0,0,0,0.1) }
 	.mobile .step1 .glassSort ul {position: absolute; top: 110px; left: 0; background-color: #fff; border: 1px solid #999; padding: 10px 0; min-height:400px; overflow-y: scroll; display: none }
 	.mobile .step1 .glassSort ul li { width: 100%;}
