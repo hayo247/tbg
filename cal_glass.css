@@ -295,7 +295,7 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 	.mobile .step3 .glass_add_lists{position:relative;height:45rem}
 	.mobile .step3 .glass_add_lists .fix_head_table tbody{top:0;width:100%;height:45rem;}
 	
-	.mobile .step3 .fix_head_table tbody tr {padding: 10px 0; margin: 1rem; display: block; border-bottom: 0px solid #999; border: 2px solid #B2CCFF; border-radius: 10px; height:auto; width:98%}
+	.mobile .step3 .fix_head_table tbody tr {padding: 10px 0; display: block; border-bottom: 0px solid #999; border: 2px solid #B2CCFF; border-radius: 10px; height:auto; width:98%}
 	.mobile .step3 .fix_head_table tbody tr td ul {padding: 0 1rem;}
 	.mobile .step3 .fix_head_table tbody tr td ul li { display: block; padding: 7px 10px; margin: 0; list-style: none;text-align: left; border-bottom: 2px dashed #eee; height:auto;}
 	.mobile .step3 .fix_head_table tbody tr td ul li .td_title { display: block; width: 20%; padding-left: 10px; float: left}
@@ -303,8 +303,8 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 	.mobile .step3 .fix_head_table tbody tr td ul li .td_plus { width: auto;}
 	.mobile .step3 .fix_head_table tbody tr td ul li .td_value { display: block}
 
-	.mobile .step3 .sendForm{float:left;width:100%; margin:3rem 0
-	.mobile .step3 .cilistSend textarea {width:100%}}
+	.mobile .step3 .sendForm{float:left;width:100%; margin:3rem 0}
+	.mobile .step3 .cilistSend textarea {width:100%}
 	.mobile .step3 .ciBtn input{font-size:1.5rem}
 	.mobile .agreeBtn {margin:10px}
 	.mobile .agreeBox {font-size:2.5rem} 
