@@ -1,7 +1,9 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="./cal_glass.css">
+
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
 <script data-cfasync="false" type="text/javascript" src="./form-submission-handler.js"></script>
@@ -27,7 +29,7 @@
 
 </head>
 <body>
-	<form id="calfrm" onsubmit="return false;">
+	<div id="calfrm" onsubmit="return false;">
     	<div class="title">
     	</div>
     	    	
@@ -36,6 +38,13 @@
     		<div class="glassTypeSort">
 			
     			<span class="txtType">1-1. 타입을 선택하세요.</span>
+				<select id="sel_glass_group_step1" class="nonDisplay mo_select_glasstype">
+					<option value="">타입을 선택하세요.</option>
+					<option value="0">일반강화유리</option>
+					<option value="1">강화백유리</option>
+					<option value="2">[무광]강화사틴유리</option>
+				</select>
+				
     			<ul class="glass_group_step1 tp_step1">
 					<li class="" data-step="1">
     					<input type="hidden" id="glass_group_step1_0" name="glass_group_step1[]" value="0">
@@ -54,6 +63,14 @@
 				<hr class="hrDash tp_step2">
 				
     			<span class="txtType tp_step2">1-2. 세부 타입을 선택하세요.</span>
+				<select id="sel_glass_group_step2" class="nonDisplay mo_select_glasstype" disabled>
+					<option value="">세부 타입을 선택하세요.</option>
+					<option value="common">투명</option>
+					<option value="color">칼라</option>
+					<option value="marble">대리석</option>
+					<option value="wood">우드</option>
+					<option value="pattern">패턴</option>
+				</select>
     			<ul class="glass_group_step2 tp_step2 disabled">
 					<li class="" data-step="2">
     					<input type="hidden" id="glass_group_step2_0" name="glass_group_step2[]" value="common">
@@ -159,22 +176,46 @@
     					<span class="inputData">
     						<select id="sel_safe_size" name="sel_safe_size" class="ui-selectmenu-button pi_select_button textField">
 								<option value="">선택해주세요.</option>
-								<option value="0">기본(직각)</option
-								<option value="0">둥글게-R2(살짝)</option>
-								<option value="1">둥글게-R10(10원)</option>
-								<option value="1">둥글게-R15(패트병뚜껑)</option>
-								<option value="1">둥글게-R20</option>
-								<option value="1">둥글게-R25</option>
-								<option value="1">둥글게-R30</option>
-								<option value="1">둥글게-R35</option>
-								<option value="1">둥글게-R40</option>
-								<option value="1">둥글게-R45</option>
-								<option value="1">둥글게-R50</option>
-								<option value="1">모따기-C5</option>
+								<option value="1">둥글게-R5</option>
+								<option value="2">둥글게-R10(10원)</option>
+								<option value="3">둥글게-R15(500원)</option>
+								<option value="4">둥글게-R20(요구르트바닥)</option>
+								<option value="5">둥글게-R25(종이컵바닥)</option>
+								<option value="6">둥글게-R30(종이컵중간)</option>
+								<option value="10">둥글게-R35(종이컵상부)</option>
+								<option value="10">둥글게-R40</option>
+								<option value="10">둥글게-R45</option>
+								<option value="10">둥글게-R50</option>
+								<option value="10">둥글게-R55</option>
+								<option value="10">둥글게-R60</option>
+								<option value="10">둥글게-R65</option>
+								<option value="10">둥글게-R70</option>
+								<option value="10">둥글게-R75</option>
+								<option value="10">둥글게-R80</option>
+								<option value="10">둥글게-R85</option>
+								<option value="10">둥글게-R90</option>
+								<option value="10">둥글게-R95</option>
+								<option value="10">둥글게-R100</option>
+								<option value="0">모따기-C5</option>
 								<option value="1">모따기-C10</option>
-								<option value="1">모따기-C15</option>
-								<option value="1">모따기-C20</option>
-								<option value="1">모따기-C25</option>
+								<option value="2">모따기-C15</option>
+								<option value="3">모따기-C20</option>
+								<option value="4">모따기-C25</option>
+								<option value="5">모따기-C30</option>
+								<option value="6">모따기-C35</option>
+								<option value="7">모따기-C40</option>
+								<option value="7">모따기-C45</option>
+								<option value="7">모따기-C50</option>
+								<option value="7">모따기-C55</option>
+								<option value="7">모따기-C60</option>
+								<option value="7">모따기-C65</option>
+								<option value="7">모따기-C70</option>
+								<option value="7">모따기-C75</option>
+								<option value="7">모따기-C80</option>
+								<option value="7">모따기-C85</option>
+								<option value="7">모따기-C90</option>
+								<option value="7">모따기-C95</option>
+								<option value="7">모따기-C100</option>
 							</select>
     					</span>
     				</li>
@@ -184,9 +225,10 @@
     						<input type="text" id="glasssize_price" name="glasssize_price" class="textField" disabled="disabled" readonly="readonly"><b class="dataUnit ftred">원</b>
     					</span>
     				</li>
+    				<li>
+						<div class="ciBtn2" id="add_glass_cart"><span>유리 담기</span></div>
+    				</li>
     			</ul>
-				
-				<a href="#" class="ciBtn2" id="add_glass_cart"><span>유리 담기</span></a>
     		</div>
     	</div>
     	    	
@@ -211,7 +253,7 @@
     			<tbody><tr>
     				<td>
     					<a href="#" id="select_delete_cart"><span class="BtnTypeA">선택삭제</span></a>
-    					<a href="" id="all_delete_cart"><span class="BtnTypeA">전체삭제</span></a>
+    					<a href="#" id="all_delete_cart"><span class="BtnTypeA">전체삭제</span></a>
     				</td>
     				<td>총 갯수 : <span class="fc0"><span id="tot_count">0</span>개</span></td>
     				<td class="">총 결제금액 : <span class="fc0"><span id="tot_price">0</span>원 </span></td>
@@ -232,7 +274,7 @@
     			<div class="sendForm">
     				<input type="text" id="order_name" name="order_name" placeholder="수취인 명">
     				 <input type="text" id="order_tel" name="order_tel" placeholder="수취인 연락처">
-    				<input type="text" id="order_email" name="order_email" placeholder="수취인 이메일(없을 시 '없음'으로 표기 부탁드립니다.)">
+    				<input type="text" id="order_email" name="order_email" placeholder="수취인 이메일(본 이메일로 견적서가 발송됩니다.)">
     			</div>				
     			<div class="sendContents">
     				<p><textarea name="order_memo" id="order_memo" cols="30" rows="10" placeholder="[요청사항] 요청사항외에 주문과 관련된 문의사항은 톡톡문의 또는 Q&A에 올려주시면 빠른 견적이 가능합니다."></textarea></p>
@@ -244,9 +286,9 @@
     		<p class="ftsize12">- 견적기 내 확인되는 차액이 발생할 경우 고객님께 별도로 연락드려 안내드리겠습니다.</p>
     		
 			<!-- 개인정보 취급방침 -->
-			<div style="text-align:center;margin-top:50px;font-size:14px">
+			<div class="agreeBox">
 				<div class="quote">
-					<label style="cursor:pointer"><input type="checkbox" id="agree_privacy" name="agree_privacy" value="" style="width:auto;"><b>개인정보 취급방침 및 마케팅메시지의 수신을 동의합니다.</b>	</label>
+					<label style="cursor:pointer"><input type="checkbox" id="agree_privacy" name="agree_privacy" value="" ><b>개인정보 취급방침 및 마케팅메시지의 수신을 동의합니다.</b>	</label>
 					<p class="agreeBtn"><a class="commentLink" title="Add a comment to this entry" href="javascript:toggleLayer('commentForm');" style="color:#fff">전문보기</a></p>
 					<div id="commentForm" style="display:none;margin-top:20px;">
 						<textarea name="" id="" cols="30" rows="10">㈜태범글라스텍는 고객님들의 개인정보를 매우 소중하게 생각하며 다음과 같은 개인정보취급방침을 시행하고 있습니다.
@@ -369,7 +411,7 @@
     		<!-- 견적전송하기 -->
     	</div>
     	    
-    </form>	
+    </div>	
 
 	<div class="dim-layer">
 		<div class="dimBg"></div>
