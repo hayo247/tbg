@@ -507,8 +507,8 @@ function send_email(){
 	
 	var cartTxt = "";
 	
-	$('#glass_cal_cart > tbody tr').each(function(){
-		if($(this).find('input[name="index"]').val() != 0){
+	$('#glass_cal_cart > tbody tr').each(function(index){
+		if(index != 0){
 			cartTxt += "/"
 		}
 		cartTxt += $(this).find('input[name="type"]').val() + "|";
