@@ -625,7 +625,7 @@ function send_email(){
 	$.ajax({
 		data : queryString,
 		type : 'post',
-		url : 'https://script.google.com/macros/s/AKfycbydNcEsno5nPjHE-t3MhanevVaw3ed7gz4jiCbeNG9J36Oz2fjED6GCvfKxI_e45RuF/exec',
+		url : 'https://script.google.com/macros/s/AKfycbzXOkl5gxvdfhpUEtlMoRqaQV9aST9p1XbQCrVVRe4sfcMm21bozIbL47tR4DOEapB6yQ/exec',
 		dataType : 'json',
 		error: function(xhr, status, error){
 			$("#loading").hide();
