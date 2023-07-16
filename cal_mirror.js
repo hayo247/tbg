@@ -529,7 +529,7 @@ function send_email(){
 	$.ajax({
 		data : queryString,
 		type : 'post',
-		url : 'https://script.google.com/macros/s/AKfycbw4FpTK-E3Y57uYbJ8cExQRAIV-6g7wnLNkt8C8D0O0OhouLQydGFgvvFFSOzMsLnu7/exec',
+		url : 'https://script.google.com/macros/s/AKfycbwdwLR9yQes7haIayKqppvvFLKGgnpKTzZ_cFz0aqtILo4I9yUmnl4tbGfInKjF3CkV/exec',
 		dataType : 'json',
 		error: function(xhr, status, error){
 			$("#loading").hide();
