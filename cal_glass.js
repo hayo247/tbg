@@ -643,7 +643,7 @@ function getParameter(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
         results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    return results === null ? "" : decodeURI(decodeURIComponent(results[1].replace(/\+/g, " ")));
 }
 
 // 레이어 팝업
