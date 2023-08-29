@@ -227,7 +227,7 @@ function fn_typeSortLi(el){
 	$("#glasssize_count").attr("disabled", true);
 	
 	initStatus('A');		
-	imgSrc = defImgSrc + "defalt.png";
+	imgSrc = defImgSrc + "raonLogo.png";
 
 	var step = $(el).data('step');
 
