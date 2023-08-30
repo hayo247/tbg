@@ -517,12 +517,12 @@ function cal_total_price(){
 	var tot_cnt = 0;
 	var tot_price = 0;
 	
-	$('#glass_cal_cart > tbody .glasscount').each(function(){
-		tot_cnt += parseInt($(this).text().replace(/,/g, ""));
+	$('#glass_cal_cart > tbody input[name="count"]').each(function(){
+		tot_cnt += parseInt($(this).val().replace(/,/g, ""));
 	});
 	
-	$('#glass_cal_cart > tbody .glassprice').each(function(){
-		tot_price += parseInt($(this).text().replace(/,/g, ""));
+	$('#glass_cal_cart > tbody input[name="price"]').each(function(){
+		tot_price += parseInt($(this).val().replace(/,/g, ""));
 	});
 	
 	$("#tot_count").text(format_num(tot_cnt));
