@@ -234,10 +234,6 @@ function set_cal_price(){
 
 	if(width_ja == 1 && height_ja == 1) {
 		totalJa = 2;
-	} else if(width_ja == 1) {
-		totalJa = 2 * height_ja;
-	} else if(height_ja == 1) {
-		totalJa = width_ja * 2;
 	} else{
 		totalJa = width_ja * height_ja;
 	}
