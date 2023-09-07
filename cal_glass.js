@@ -331,8 +331,6 @@ function set_cal_price(){
 	
 	if(totalJa == 1){
 		price = price * 2;
-	} else{
-		price = price + (price*0.5);
 	}
 	
 	if($('#sel_safe_size').is(':visible')){
