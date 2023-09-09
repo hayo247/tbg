@@ -216,6 +216,9 @@ function initStatus(type){
 	$('#sel_safe_size').val('').prop("selected",true);
 }
 
+var selStep1 = "";
+var selStep2 = "";
+
 function fn_typeSortLi(el){
 	if($(el).parents('ul').hasClass('disabled')){
 		return;
@@ -233,15 +236,16 @@ function fn_typeSortLi(el){
 
 	if(step != undefined){
 		if(step == 1){			
+			selStep1 = $(el).find('input').val();
+			
 			$('.tp_step3').hide();
 			$('.glassTypeSort li').removeClass('selected');
-			$('.tp_step2').removeClass('disabled');
-			
+			$('.tp_step2').removeClass('disabled');		
 		}else if(step == 2){
-			var detail =  $(el).find('input').val();
 			var item;
+			selStep2 = $(el).find('input').val();
 			
-			if(detail == 'common'){
+			if(selStep2 == 'common'){
 				$("#li_sheet").show();
 				$('.tp_step3').hide();
 
@@ -252,23 +256,23 @@ function fn_typeSortLi(el){
 				$("#glasssize_height").attr("disabled", false);
 				$("#glasssize_count").attr("disabled", false);
 			} else{
-				if(detail == 'color'){
+				if(selStep2 == 'color'){
 					item = color[0]
-				}else if(detail == 'marble'){
+				}else if(selStep2 == 'marble'){
 					item = marble;
-				}else if(detail == 'wood'){
+				}else if(selStep2 == 'wood'){
 					item = wood;
-				}else if(detail == 'pattern'){
+				}else if(selStep2 == 'pattern'){
 					item = pattern;
 				}
 
 				$('ul.tp_step3').html("");
 				var html = "";
 				for(var n=0; n < item.length; n++){		
-					html +=  '<li class="' + detail + ' design" data-step="3" data-val="' + item[n] +'" onClick="javascript:fn_typeSortLi(this)">';
+					html +=  '<li class="' + selStep2 + ' design" data-step="3" data-val="' + item[n] +'" onClick="javascript:fn_typeSortLi(this)">';
 					html += '	<input type="hidden" id="glass_group_step3_' + n + '" name="glass_group_step3[]" value="' + n + '">';
 
-					if(detail == 'color'){
+					if(selStep2 == 'color'){
 						html += '	<div class="glass_group" style="background:#' + color[1][n] + '" gid="' + n + '">' + item[n] + '</div>';
 					}else{
 						html += '	<div class="glass_group" gid="' + n + '" >';
@@ -283,7 +287,11 @@ function fn_typeSortLi(el){
 				$('.tp_step3').show();
 			}
 		}else{
-			imgSrc = defImgSrc + "glass/" +$(".glassTypeSort .tp_step2 .selected input").val() + "_" + $(el).data('val') + ".png";
+			if(selStep2 == 'color' && selStep1 == 'matt'){
+				imgSrc = defImgSrc + "glass/" + selStep1 + "_"+ selStep2 + "_" + $(el).data('val') + ".jpg";
+			}else{
+				imgSrc = defImgSrc + "glass/" + selStep2 + "_" + $(el).data('val') + ".png";
+			}
 
 			$("#glasstype_select").attr("disabled", false);
 			$("#glasssize_width").attr("disabled", false);
@@ -623,7 +631,7 @@ function send_email(){
 	$.ajax({
 		data : queryString,
 		type : 'post',
-		url : 'https://script.google.com/macros/s/AKfycby8QE_5inEQRVvrzh5bS1xIeacD_avHLIMBGaNCDOh49c5o1NASj4NIXqNRKIo00d8bzw/exec',
+		url : 'https://script.google.com/macros/s/AKfycbyfRb3xGXGnkMOeBkK05bHCgI3MwWHN8dCUM7xUvWs_NYWIhW6k2mcvcFM_jF34nPuz6Q/exec',
 		dataType : 'json',
 		error: function(xhr, status, error){
 			$("#loading").hide();
