@@ -234,6 +234,15 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 	.mobile .step1 .glassSort ul li { width: 100%;}
 	.mobile .step1 .glassSort ul li .glass_group { background:#fff; font-size: 15px; padding: 15px 0; border: 0; border: 1px dashed #ccc; overflow: scroll; -webkit-overflow-scrolling: touch; z-index: 10;}
 	.mobile .step1 .glassSort ul li.selected .glass_group { background:#4374D9;}
+		
+	.mobile .step1 .glassTypeSort .txtType {font-size:1.2rem}
+	.mobile .step1 .glassTypeSort select{width: 95%; font-size: 1.5rem; padding: 0.2rem; margin:0.3rem; border: 2px solid #4374D9; border-radius: 0.5rem;}
+	.mobile .step1 .glassTypeSort ul { margin: 0.1rem 0;}
+	.mobile	.step1 .glassTypeSort ul li.color{width:20%}
+	.mobile	.step1 .glassTypeSort ul li.color .glass_group{border-radius:10px; height:3.5rem}
+	.mobile	.step1 .glassTypeSort ul li.design:not(.color) {width:100%;}
+	.mobile	.step1 .glassTypeSort ul li.design:not(.color) .glass_group div{font-size:1.3rem;position:absolute;top:1.3rem;width: 100%;}
+    	.mobile .step1 .glassTypeSort ul li.design:not(.color) .glass_group {height: 4.5rem}
 
 	.mobile .step2 .glass_img{float:left;width:100%;min-height:320px}
 	.mobile .step2 .glass_size{width:100%;}
@@ -241,11 +250,23 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 	.mobile .step2 .glass_size ul li .inputData{width: 50%; padding: 5px;}
 	.mobile .step2 .glass_size ul li .textField{width: 40%;}
 
+   	.mobile .step3 .fix_head_table tbody::-webkit-scrollbar {display: none;}
+	.mobile .step3 .fix_head_table thead {display:none;}
+  	.mobile .step3 .fix_head_table tbody tr {padding: 2px 0; display: block; border-bottom: 0px solid #999; border: 2px solid #B2CCFF; border-radius: 10px; height:auto; width:98%; margin-bottom: 10px;}
+	.mobile .step3 .fix_head_table tbody tr td ul {padding: 0 1rem;}
+	.mobile .step3 .fix_head_table tbody tr td ul li { display: block; padding: 7px 10px; margin: 0; list-style: none;text-align: left; border-bottom: 2px dashed #eee; height:auto;}
+	.mobile .step3 .fix_head_table tbody tr td ul li .td_title { display: block; width: 20%; padding-left: 10px; float: left}
+	.mobile .step3 .fix_head_table tbody tr td ul li .td_title { display: block; width: 20%; padding-left: 10px; float: left}
+	.mobile .step3 .fix_head_table tbody tr td ul li .td_plus { width: auto;}
+	.mobile .step3 .fix_head_table tbody tr td ul li .td_value { display: block}
+
 	.mobile .step3 .cutOrdInfo tr td { display: block; padding: 10px 0}
 
 	.mobile .step3 .sendForm{float:left;width:100%}
 	.mobile .step3 .cilistSend textarea {width:100%}
 	.mobile .step3 .ciBtn input{font-size:1.5rem}
+	.mobile .step3 .ciBtn input[type="button"] { padding: 1.5rem 1.5rem;}
+	
 	.mobile .agreeBtn {margin:10px}
 	.mobile .agreeBox {font-size:1rem} 
 
