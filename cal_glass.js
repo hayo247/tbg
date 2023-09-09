@@ -31,6 +31,7 @@ $(function(){
 		// 타입 선택 select
 		$("#sel_glass_group_step1").change(function(){		
 			$("#sel_glass_group_step2").val("");
+
 			if($(this).val() == ""){
 				$('.tp_step3').hide();
 				$("#sel_glass_group_step2").attr('disabled', true);
@@ -236,8 +237,10 @@ function fn_typeSortLi(el){
 
 	if(step != undefined){
 		if(step == 1){			
-			selStep1 = $(el).find('input').val();
-			
+			if("2" == $(el).find('input').val()){
+				selStep1 = "matt";
+			}
+
 			$('.tp_step3').hide();
 			$('.glassTypeSort li').removeClass('selected');
 			$('.tp_step2').removeClass('disabled');		
