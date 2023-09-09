@@ -467,7 +467,6 @@ function addCart(){
 		html += '				<span class="td_title">제품명</span>';		
 		html += "				<span class='td_value'>" + type + "</span>";
 		html += "			</li><li>";
-		html += "			<li>";
 		html += '				<span class="td_title">사이즈</span>';		
 		html += "				<span class='td_value'>" + $('#glasssize_width').val() + " X " + $('#glasssize_height').val() + "</span>";
 		html += "			</li><li>";
