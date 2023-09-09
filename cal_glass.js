@@ -30,8 +30,8 @@ $(function(){
 
 		// 타입 선택 select
 		$("#sel_glass_group_step1").change(function(){		
+			$("#sel_glass_group_step2").val("");
 			if($(this).val() == ""){
-				$("#sel_glass_group_step2").val("");
 				$('.tp_step3').hide();
 				$("#sel_glass_group_step2").attr('disabled', true);
 			}else{
