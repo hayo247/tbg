@@ -250,6 +250,11 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 	.mobile .step2 .glass_size ul li .inputData{width: 50%; padding: 5px;}
 	.mobile .step2 .glass_size ul li .textField{width: 40%;}
 
+	.mobile .step2 .ciBtn2 {margin:1rem 0}
+	.mobile .step2 .ciBtn2 span {font-size:1.5rem;padding:1rem 4rem;}
+	
+	.mobile .step3 .glass_add_lists .fix_head_table tbody{top:0;width:100%;height:100%;}
+
    	.mobile .step3 .fix_head_table tbody::-webkit-scrollbar {display: none;}
 	.mobile .step3 .fix_head_table thead {display:none;}
   	.mobile .step3 .fix_head_table tbody tr {padding: 2px 0; display: block; border-bottom: 0px solid #999; border: 2px solid #B2CCFF; border-radius: 10px; height:auto; width:98%; margin-bottom: 10px;}
