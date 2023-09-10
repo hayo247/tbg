@@ -313,11 +313,9 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 
 	.mobile .step1 .glassTypeSort .txtType {font-size:2rem}
 	.mobile .step1 .glassTypeSort select{width: 98%; font-size: 2.5rem; padding: 15px; margin:7px; border: 2px solid #4374D9; border-radius: 10px;}
-	.mobile .step1 .glassTypeSort ul { margin: 10px 0;}
-	
+	.mobile .step1 .glassTypeSort ul { margin: 10px 0; max-height:none;}
 	.mobile	.step1 .glassTypeSort ul li.color{width:10%}
 	.mobile	.step1 .glassTypeSort ul li.color .glass_group{border-radius:10px; height:70px}
-
 	.mobile	.step1 .glassTypeSort ul li.design:not(.color) {width:25%;}
 	.mobile	.step1 .glassTypeSort ul li.design:not(.color) .glass_group div{font-size:2rem;position:absolute;top:30px;width: 100%;}
 	.mobile .step1 .glassTypeSort ul li.design:not(.color) .glass_group {height: 7.5rem}
