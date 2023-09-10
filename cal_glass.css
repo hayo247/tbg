@@ -237,14 +237,14 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 		
 	.mobile .step1 .glassTypeSort .txtType {font-size:1.2rem}
 	.mobile .step1 .glassTypeSort select{width: 95%; font-size: 1.5rem; padding: 0.2rem; margin:0.3rem; border: 2px solid #4374D9; border-radius: 0.5rem;}
-	.mobile .step1 .glassTypeSort ul { margin: 0.1rem 0;}
+	.mobile .step1 .glassTypeSort ul { margin: 0.1rem 0; max-height: 20rem; overflow: auto}
 	.mobile	.step1 .glassTypeSort ul li.color{width:20%}
 	.mobile	.step1 .glassTypeSort ul li.color .glass_group{border-radius:10px; height:3.5rem}
 	.mobile	.step1 .glassTypeSort ul li.design:not(.color) {width:100%;}
 	.mobile	.step1 .glassTypeSort ul li.design:not(.color) .glass_group div{font-size:1.3rem;position:absolute;top:1.3rem;width: 100%;}
     	.mobile .step1 .glassTypeSort ul li.design:not(.color) .glass_group {height: 4.5rem}
 
-	.mobile .step2 .glass_img{float:left;width:100%;min-height:320px}
+	.mobile .step2 .glass_img{float:left;width:100%;min-height:100px}
 	.mobile .step2 .glass_size{width:100%;}
 	.mobile .step2 .glass_size ul li{float: left; width: 100%; padding-right: 0; padding-left: 0}
 	.mobile .step2 .glass_size ul li .inputData{width: 50%; padding: 5px;}
@@ -320,6 +320,7 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 
 	.mobile	.step1 .glassTypeSort ul li.design:not(.color) {width:25%;}
 	.mobile	.step1 .glassTypeSort ul li.design:not(.color) .glass_group div{font-size:2rem;position:absolute;top:30px;width: 100%;}
+	.mobile .step1 .glassTypeSort ul li.design:not(.color) .glass_group {height: 7.5rem}
 
 	.mobile .step2 .glass_img{float:left;width:100%;min-height:320px}
 	.mobile .step2 .glass_size{width:100%;}
@@ -329,6 +330,8 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 	.mobile .step2 .glass_size ul li .textField{width: 40%;}
 	.mobile .step2 .glass_size ul li .dataUnit{font-size:2.3rem;display:inline-block;margin-left:5px}
 	.mobile .box-guide .button-guide {width: 2.8rem; height: 2.8rem;}
+	
+	.mobile .step2 .ciBtn2 {margin:4rem 0}
 	.mobile .step2 .ciBtn2 span {font-size:2.5rem;padding:2rem 5rem;}
 
 	.mobile .step3 .fix_head_table thead {display:none;}
