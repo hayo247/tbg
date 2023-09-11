@@ -359,4 +359,15 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 	.mobile a.btn-layerClose {height: 3rem; font-size: 2rem;line-height: 3rem;}
 	.mobile .pop-layer {width: 40rem;}
 	.mobile .pop-loading {width: 40rem;}
+
+	
+	
+	.mobile .step2 .glass_size ul.t1 li{float: left; width: 100%; padding-right: 0; padding-left: 0}
+	.mobile .step2 .glass_size ul.t1 li .inputData{width: 50%; padding: 5px; font-size:3rem}
+	.mobile .step2 .glass_size ul.t1 li .inputTitle{ font-size: 6rem;}
+	.mobile .step2 .glass_size ul.t1 li .textField{width: 40%; height:7.5rem; font-size:6.5rem}
+	.mobile .step2 .glass_size ul.t1 li .dataUnit{font-size:5rem;display:inline-block;margin-left:5px}
+	.mobile .step2 .t1 .ciBtn2 span {font-size:5.5rem;padding:3rem 7rem;}
+	
+	.mobile .t1 .sendForm input{ font-size : 5rem; height:6rem}
 }
