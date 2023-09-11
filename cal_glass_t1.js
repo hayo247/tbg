@@ -1,6 +1,5 @@
 var cost =[7000 , 10500];
 
-
 $(function(){
 	$("#market_name").val(getParameter("to"));
 	$('#loading').hide(); //첫 시작시 로딩바를 숨겨준다.
