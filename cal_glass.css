@@ -149,6 +149,7 @@ a.btn-layerClose:hover {border: 1px solid #091940; background-color: #1f326a; co
 .step3 .glass_add_lists .fix_head_table tr .glasscheck{width:30px}
 .step3 .glass_add_lists .fix_head_table tr .glassname{width:calc(34% - 30px)}
 .step3 .glass_add_lists .fix_head_table tr .glasscount{width:9%}
+.step3 .glass_add_lists .fix_head_table tr .glasssize{width:30%}
 .step3 .glass_add_lists .fix_head_table tr .glasstype{width:22%}
 .step3 .glass_add_lists .fix_head_table tr .glasstype2{width:10%}
 .step3 .glass_add_lists .fix_head_table tr .glasssheet{width:15%}
