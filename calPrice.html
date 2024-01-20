@@ -1,0 +1,91 @@
+<html>    
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
+    </head>
+    <style>
+        body {
+            font-size: 1.5rem;
+        }
+
+        body ul {
+            list-style-type: none;
+            list-style: none;
+            padding: 0.2rem;
+        }
+        
+        body ul li p{
+            display: inline-block;
+            margin: 0.2rem 0 ;
+        }
+        
+        body ul li input{
+            height: 1.8rem;
+            font-size: 1.5rem;
+        }
+    </style>
+    <body>
+        <ul>
+            <li>
+                <p>단가 : </p>
+                <input id="cost">
+            </li>
+            <li>
+                <p>가로 : </p>
+                <input id="width">
+            </li>
+            <li>
+                <p>세로 : </p>
+                <input id="height">
+            </li>
+        </ul>
+        <button id="btnCal">계산하기</button>
+        <div>  
+            <p>자평 : <span id="priceJa">0</span>원</p>
+            <p>실평 : <span id="priceRe">0</span>원</p>
+        </div>
+    </body>
+    <script>        
+        $(function(){
+            $("#btnCal").click(function(){
+                set_cal_price(this);
+            });
+        });
+
+                
+        // 금액 계산
+        function set_cal_price(){
+            var cost = $("#cost").val();
+            var price1 = 0;
+
+            price1 = (($("#width").val() * $("#height").val()) / 90000) * cost ;
+            $("#priceRe").html(format_num(Math.round(price1)));
+
+            var price2 = 0;
+	        var totalJa = 0;
+            totalJa = calJa($("#width").val()) * calJa($("#height").val());	
+        	price2 = cost * totalJa;
+
+            $("#priceJa").html(format_num(Math.round(price2)));
+        }
+
+        // 자평 계산
+        function calJa (n){
+            var cut = n%300;
+            var ja = Math.floor(n/300) + 1;
+            if ( cut == 0){
+                ja = ja - 1;
+            }
+            
+            return ja;
+        }
+                
+        // 숫자 포맷
+        function format_num(num){
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        }
+
+    </script>
+</html>
