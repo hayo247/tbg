@@ -39,32 +39,67 @@
         
     </style>
     <body>
-        <ul>
-            <li>
-                <p>단가 : </p>
-                <input id="cost" type="tel">
-            </li>
-            <li>
-                <p>가로 : </p>
-                <input id="width" type="tel">
-            </li>
-            <li>
-                <p>세로 : </p>
-                <input id="height" type="tel">
-            </li>
-        </ul>
-        <button id="btnCal">계산하기</button>
-        <div>  
-            <p>자평 : <span id="priceJa">0</span>원</p>
-            <p>실평 : <span id="priceRe">0</span>원</p>
+        <input id="type1" name="type" type="radio" value="divCost" checked>     
+        <label for="type1">단가계산기</label>
+        <input id="type2" name="type" type="radio" value="divJa">     
+        <label for="type2">자평계산기</label>
+        <div id="divCost" class="showing">
+            <ul>
+                <li>
+                    <p>단가 : </p>
+                    <input id="cost" type="tel">
+                </li>
+                <li>
+                    <p>가로 : </p>
+                    <input id="width" type="tel">
+                </li>
+                <li>
+                    <p>세로 : </p>
+                    <input id="height" type="tel">
+                </li>
+            </ul>
+            <button id="btnCal">계산하기</button>
+            <div>  
+                <p>자평 : <span id="priceJa">0</span>원 (<span id="japeng">0</span>평) </p>
+                <p>실평 : <span id="priceRe">0</span>원 (<span id="repeng">0</span>평)</p>
+            </div>
+            <hr>
+            <p>결과 목록 <button id="btnHist">보기</button> <button id="btnRmHist">지우기</button><p>
+            <ul id="hist" style="display: none;">
+            </ul>
         </div>
-        <hr>
-        <p>결과 목록 <button id="btnHist">보기</button> <button id="btnRmHist">지우기</button><p>
-        <ul id="hist" style="display: none;">
-        </ul>
+        <div id="divJa" class="showing" style="display: none;">
+            <ul>
+                <li>
+                    <p>가로 : </p>
+                    <input id="jaWidth" type="tel">
+                </li>
+                <li>
+                    <p>세로 : </p>
+                    <input id="jaHeight" type="tel">
+                </li>
+            </ul>
+            <button id="btnJaCal">계산하기</button>
+            <div>  
+                <p>가로자평 : <span id="jaW">0</span>평</p>
+                <p>세로자평 : <span id="jaH">0</span>평</p>
+                <p>자평 : <span id="javal">0</span>평</p>
+            </div>
+        </div>
     </body>
     <script>        
         $(function(){
+            $("[name='type']").click(function(){
+                $(".showing").hide();
+                $("#" + $(this).val()).show();
+            });
+
+            $("#btnJaCal").click(function(){
+                $("#jaW").html(calJa($("#jaWidth").val()));
+                $("#jaH").html(calJa($("#jaHeight").val()));
+                $("#javal").html(calJa($("#jaWidth").val()) * calJa($("#jaHeight").val()));
+            });
+
             $("#btnCal").click(function(){
                 set_cal_price(this);
             });
@@ -81,6 +116,8 @@
             
             $("#btnRmHist").click(function(){                
                 $("#hist").html("");
+                
+            totalJa = calJa($("#width").val()) * calJa($("#height").val());	
             });
 
         });
@@ -94,7 +131,9 @@
                 return;
             }
 
-            price1 = (($("#width").val() * $("#height").val()) / 90000) * cost ;
+            var realPeng = (($("#width").val() * $("#height").val()) / 90000);
+            price1 = realPeng * cost ;
+            $("#repeng").html(Math.round(realPeng*100)/100);
             $("#priceRe").html(format_num(Math.round(price1)));
 
             var price2 = 0;
@@ -102,13 +141,14 @@
             totalJa = calJa($("#width").val()) * calJa($("#height").val());	
         	price2 = cost * totalJa;
 
+            $("#japeng").html(totalJa);
             $("#priceJa").html(format_num(Math.round(price2)));
             
             var html = "";
 
             html += "<li>";
             html += "<p>" + ($("#hist li").length + 1 ) +". 단가 : " + format_num(cost) + " / 가로 : " + format_num($("#width").val()) + " / 세로 : " + format_num($("#height").val()) + "</p>";
-            html += "<p> &emsp; > 자평 : " + format_num(Math.round(price2)) + "원 / 실평 : " + format_num(Math.round(price1)) + "원</p>";
+            html += "<p> &emsp; > 자평 : " + format_num(Math.round(price2)) + "원(" + totalJa + "평) / 실평 : " + format_num(Math.round(price1)) + "원(" + Math.round(realPeng*100)/100 + "평)</p>";
             html += "</li>";
 
             html += $("#hist").html();
