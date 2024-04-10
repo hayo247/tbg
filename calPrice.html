@@ -81,8 +81,6 @@
             </ul>
             <button id="btnJaCal">계산하기</button>
             <div>  
-                <p>가로자평 : <span id="jaW">0</span>평</p>
-                <p>세로자평 : <span id="jaH">0</span>평</p>
                 <p>자평 : <span id="javal">0</span>평</p>
             </div>
         </div>
@@ -95,8 +93,6 @@
             });
 
             $("#btnJaCal").click(function(){
-                $("#jaW").html(calJa($("#jaWidth").val()));
-                $("#jaH").html(calJa($("#jaHeight").val()));
                 $("#javal").html(calJa($("#jaWidth").val()) * calJa($("#jaHeight").val()));
             });
 
