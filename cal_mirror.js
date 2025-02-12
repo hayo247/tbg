@@ -238,7 +238,7 @@ function set_cal_price(){
 		totalJa = width_ja * height_ja;
 	}
 	
-	price = input_price * totalJa * $("#glasssize_count").val();
+	price = input_price * totalJa;
 
 	if($('input[name=chk_sheet]:checked').val() == "추가"){
 		price = price + totalJa * 1000 * $("#glasssize_count").val();
@@ -248,6 +248,8 @@ function set_cal_price(){
 		price = price + 3000;
 	}
 
+	price = price * $("#glasssize_count").val();
+	
 	// 100원 단위 반올림
 	$("#glasssize_price").val(format_num(Math.round(price/1000)*1000));
 }
