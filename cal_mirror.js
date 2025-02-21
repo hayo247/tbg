@@ -30,6 +30,12 @@ $(function(){
 		initStatus();	
 		
 		$(".step2 input").attr("disabled", false);
+
+		if($("#ul_glassSort li.selected").hasClass('thick') && $(this).val() == "0" ){
+			$("#li_thick").show();
+		}else{
+			$("#li_thick").hide();
+		}
 		
 		// 원형 > 지름값 / 이외에는 가로 * 세로
 		if($(this).val() == "1"){
@@ -56,7 +62,7 @@ $(function(){
 	});
 	
 	// 지름 값
-	$('#glasssize_diameter').on('keyup change', function(){
+	$('#glasssize_diameter').on('keyup', function(){
 		$(this).val($(this).val().replace(/[^0-9]/g, ""));
 		
 		if(parseInt($('#glasssize_diameter').val().replace(/[^0-9]/, '')) > 1500){
@@ -86,7 +92,7 @@ $(function(){
 		$(this).next().hide();
 	});
 	
-	$('#glasssize_width, #glasssize_height, #glasssize_count').on('keyup change', function(){			
+	$('#glasssize_width, #glasssize_height, #glasssize_count').on('keyup', function(){			
 		$(this).val($(this).val().replace(/[^0-9]/g, ""));
 		
 		// 거울 : 가로 X 세로 : 2400 * 1200 / 1200 * 2400 , 최소값 : 100mm
@@ -170,12 +176,6 @@ function fn_glassSortUl(el){
 
 		$(".glass_img img").attr('src', imgSrc);
 		
-		if($(el).hasClass('thick')){
-			$("#li_thick").show();
-		}else{
-			$("#li_thick").hide();
-		}
-
 		initStatus('A');
 
 		$("#glasstype_select").attr("disabled", false);
@@ -238,18 +238,16 @@ function set_cal_price(){
 		totalJa = width_ja * height_ja;
 	}
 	
-	price = input_price * totalJa;
+	price = input_price * totalJa * $("#glasssize_count").val();
 
 	if($('input[name=chk_sheet]:checked').val() == "추가"){
-		price = price + totalJa * 1000;
+		price = price + totalJa * 1000 * $("#glasssize_count").val();
 	}
 	
 	if($('input[name=chk_safe_corner]:checked').val() == "추가"){
 		price = price + 3000;
 	}
 
-	price = price * $("#glasssize_count").val();
-	
 	// 100원 단위 반올림
 	$("#glasssize_price").val(format_num(Math.round(price/1000)*1000));
 }
